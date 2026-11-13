@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UHACOM — Union Haguruka des Coopératives Multifilières</title>
+<meta name="description" content="UHACOM, union de coopératives agricoles du Burundi : prospérité et dignité pour les petits paysans.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#E85C0D; --orange-d:#C24A07; --orange-l:#FDEBDD;
+  --green:#2F8A1D; --green-d:#1F5F12; --green-dd:#143F0C; --green-l:#E6F3E0;
+  --ink:#1C2A17; --muted:#55634F; --cream:#FBF8F1; --line:#E4DFD2;
+  --r:22px; --shadow:0 24px 50px -26px rgba(20,63,12,.55);
+  --display:'Playfair Display',Georgia,serif; --body:'Jost',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--cream);line-height:1.65;font-size:18px;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1200px,92%);margin-inline:auto}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.15;font-weight:600;letter-spacing:-.005em}
+h2{font-size:clamp(2rem,3.8vw,3.1rem)}
+h3{font-size:1.35rem}
+em{font-style:italic;font-weight:500;color:var(--orange-d)}
+.impact em,.hero em,.why em,.quote em,.cta-band em{color:inherit}
+section{padding:clamp(4rem,8.5vw,7rem) 0;position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:.65rem;font-weight:700;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange-d)}
+.eyebrow::before{content:"";width:30px;height:3px;border-radius:3px;background:var(--orange)}
+.lead{font-size:1.14rem;color:var(--muted);max-width:60ch}
+.btn{display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 1.7rem;border-radius:999px;font-weight:700;font-size:.97rem;border:2px solid transparent;cursor:pointer;transition:transform .3s,box-shadow .3s,background .3s,color .3s;font-family:var(--body)}
+.btn:hover{transform:translateY(-3px)}
+.btn svg{width:18px;height:18px;transition:transform .3s}
+.btn:hover svg{transform:translateX(4px)}
+.btn-orange{background:var(--orange);color:#fff;box-shadow:0 14px 28px -14px var(--orange)}
+.btn-orange:hover{background:var(--orange-d)}
+.btn-ghost{border-color:rgba(255,255,255,.6);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.14)}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:var(--green-d)}
+.btn-line{border-color:var(--green);color:var(--green-d)}
+.btn-line:hover{background:var(--green-l)}
+
+/* photo helper: gradient shows through if the image can't load */
+.ph{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--green) 0%,var(--green-d) 60%,var(--orange) 140%)}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.zoom:hover .ph img,.ph.hov:hover img{transform:scale(1.07)}
+
+/* progress + header */
+#bar{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--orange),#FFB27F);z-index:100}
+header.nav{position:fixed;top:0;left:0;right:0;z-index:90;transition:background .35s,box-shadow .35s,transform .35s;padding:.5rem 0}
+header.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
+header.nav.solid{background:rgba(251,248,241,.94);backdrop-filter:blur(14px);box-shadow:0 8px 30px -20px rgba(20,63,12,.5)}
+.brand{display:flex;align-items:center;gap:.8rem;background:#fff;padding:.35rem .9rem;border-radius:14px;box-shadow:0 8px 24px -14px rgba(0,0,0,.45)}
+.brand img{height:46px;width:auto}
+.brand .fb{display:none;font-family:var(--display);font-weight:700;font-size:1.4rem;color:var(--green-d)}
+.brand .fb b{color:var(--orange)}
+nav ul{display:flex;gap:.15rem;list-style:none;align-items:center}
+nav a.lnk{padding:.55rem 1rem;border-radius:999px;font-weight:500;font-size:.97rem;color:#fff;transition:background .25s,color .25s}
+header.solid nav a.lnk{color:var(--ink)}
+nav a.lnk:hover{background:rgba(255,255,255,.18)}
+header.solid nav a.lnk:hover{background:var(--green-l);color:var(--green-d)}
+.burger{display:none;background:none;border:0;cursor:pointer;width:46px;height:46px}
+.burger span{display:block;height:3px;margin:6px 9px;background:#fff;border-radius:3px;transition:.3s}
+header.solid .burger span{background:var(--green-d)}
+
+/* hero */
+.hero{min-height:100svh;position:relative;display:flex;align-items:center;color:#fff;background:var(--green-dd);overflow:hidden;isolation:isolate;padding:130px 0 160px}
+.slides{position:absolute;inset:0;z-index:-3}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease;background-size:cover;background-position:center}
+.slide.on{opacity:1}
+.slide.on{animation:kb 14s ease-out forwards}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.12)}}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(100deg,rgba(14,45,8,.92) 0%,rgba(20,63,12,.78) 42%,rgba(20,63,12,.25) 100%)}
+.hero::after{content:"";position:absolute;right:-12%;top:-20%;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(232,92,13,.65) 0%,rgba(232,92,13,0) 66%);z-index:-1;animation:float 14s ease-in-out infinite}
+@keyframes float{50%{transform:translate(-40px,30px) scale(1.07)}}
+.hero .grid{display:grid;grid-template-columns:1.3fr .7fr;gap:3rem;align-items:center}
+.hero .eyebrow{color:#ffd2b3}
+.hero h1{font-size:clamp(2.5rem,5.4vw,4.5rem);margin:1.2rem 0 1.5rem;line-height:1.08;font-weight:600}
+.hero h1 .wd{display:inline-block;opacity:0;transform:translateY(34px) rotate(2deg);animation:wd .9s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1 em{color:#FFB27F;font-weight:500}
+@keyframes wd{to{opacity:1;transform:none}}
+.hero p.lead{color:#e3f0de;font-size:1.22rem}
+.hero .cta{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.2rem}
+.hero-card{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.26);border-radius:var(--r);padding:1.9rem;backdrop-filter:blur(10px);animation:rise 1s .9s both}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}}
+.hero-card .big{font-family:var(--display);font-size:4rem;font-weight:700;line-height:1;color:#FFB27F}
+.hero-card p{color:#e3f0de;font-size:.97rem;margin-top:.4rem}
+.hero-card .row{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.4rem;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,.24)}
+.hero-card .row b{font-family:var(--display);font-size:1.9rem;display:block;line-height:1.1}
+.dots{position:absolute;left:50%;bottom:112px;transform:translateX(-50%);display:flex;gap:.55rem;z-index:2}
+.dots button{width:34px;height:4px;border-radius:4px;border:0;background:rgba(255,255,255,.38);cursor:pointer;padding:0;overflow:hidden;position:relative}
+.dots button.on::after{content:"";position:absolute;inset:0;background:var(--orange);animation:prog 6s linear forwards}
+@keyframes prog{from{transform:translateX(-100%)}to{transform:none}}
+.scroll{position:absolute;left:4%;bottom:118px;display:flex;align-items:center;gap:.8rem;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#cfe5c8}
+.scroll i{width:2px;height:44px;background:rgba(255,255,255,.35);position:relative;overflow:hidden;border-radius:2px}
+.scroll i::after{content:"";position:absolute;left:0;top:-50%;width:100%;height:50%;background:var(--orange);animation:drip 1.8s infinite}
+@keyframes drip{to{top:110%}}
+.hills{position:absolute;left:0;right:0;bottom:-1px;width:100%;height:auto;display:block}
+.hills .h1{animation:sway 9s ease-in-out infinite alternate}
+.hills .h2{animation:sway 12s ease-in-out infinite alternate-reverse}
+@keyframes sway{from{transform:translateX(-16px)}to{transform:translateX(16px)}}
+
+/* partenaires */
+.strip{padding:3.5rem 0 3.8rem;border-bottom:1px solid var(--line);background:#fff}
+.strip-head{text-align:center;margin-bottom:2rem}
+.strip-head h2{font-size:clamp(1.7rem,3vw,2.3rem);margin-top:.7rem}
+.marquee{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{display:flex;gap:1.2rem;width:max-content;animation:scroll 46s linear infinite;padding:.5rem 0}
+.marquee:hover .track{animation-play-state:paused}
+.plogo{flex:none;width:190px;height:104px;background:var(--cream);border:1px solid var(--line);border-radius:18px;display:grid;place-items:center;padding:1rem 1.2rem;transition:transform .3s,box-shadow .3s,border-color .3s,background .3s}
+.plogo:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--green);background:#fff}
+.plogo img{max-width:100%;max-height:68px;width:auto;height:auto;object-fit:contain;filter:grayscale(1);opacity:.8;transition:filter .3s,opacity .3s}
+.plogo:hover img{filter:none;opacity:1}
+.plogo span{font-family:var(--display);font-weight:600;font-size:1rem;line-height:1.2;text-align:center;color:var(--green-d)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* about */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2.5rem,6vw,5.5rem);align-items:center}
+.collage{position:relative;height:clamp(440px,52vw,600px)}
+.collage .a{position:absolute;left:0;top:0;width:72%;height:80%;border-radius:var(--r);box-shadow:var(--shadow)}
+.collage .b{position:absolute;right:0;bottom:0;width:56%;height:52%;border-radius:var(--r);border:8px solid var(--cream);box-shadow:var(--shadow)}
+.collage .seal{position:absolute;right:6%;top:6%;width:128px;height:128px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;text-align:center;font-family:var(--display);line-height:1.1;box-shadow:0 18px 30px -14px var(--orange);animation:spin 26s linear infinite}
+.collage .seal span{animation:spin 26s linear infinite reverse;display:block}
+.collage .seal b{font-size:2rem;display:block}
+.collage .seal small{font-family:var(--body);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
+@keyframes spin{to{transform:rotate(360deg)}}
+.about h2{margin:.9rem 0 1.3rem}
+.about p+p{margin-top:1rem}
+.vision{margin:1.8rem 0 2rem;padding:1.4rem 1.6rem;border-left:5px solid var(--orange);background:var(--orange-l);border-radius:0 var(--r) var(--r) 0;font-family:var(--display);font-size:1.28rem;font-style:italic;color:var(--green-dd)}
+.vision small{display:block;font-family:var(--body);font-style:normal;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-d);margin-bottom:.4rem;font-weight:700}
+
+/* valeurs */
+.vals{background:#fff}
+.vals .head{max-width:640px;margin-bottom:3rem}
+.vals .head h2{margin-top:.8rem}
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.val{padding:2.2rem;border-radius:var(--r);background:var(--cream);border:1px solid var(--line);position:relative;overflow:hidden;transition:transform .35s,box-shadow .35s}
+.val:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.val .n{font-family:var(--display);font-size:5rem;font-weight:700;line-height:.8;color:var(--orange-l);position:absolute;right:1.2rem;top:1.2rem}
+.val h3{margin:3.2rem 0 .7rem;color:var(--green-d)}
+.val p{color:var(--muted)}
+.val::after{content:"";position:absolute;left:0;bottom:0;height:5px;width:0;background:var(--orange);transition:width .5s}
+.val:hover::after{width:100%}
+
+/* impact */
+.impact{color:#fff;overflow:hidden;background:var(--green-dd)}
+.impact .bg{position:absolute;inset:-12% 0;background-size:cover;background-position:center;opacity:.5;will-change:transform}
+.impact::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,45,8,.9),rgba(20,63,12,.85));z-index:0}
+.impact .wrap{position:relative;z-index:1}
+.impact .head{text-align:center;max-width:700px;margin:0 auto 3.2rem}
+.impact .eyebrow{color:#ffd2b3}
+.impact h2{margin-top:.9rem}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.stat{border:1px solid rgba(255,255,255,.22);border-radius:var(--r);padding:2.2rem 1.2rem;text-align:center;background:rgba(255,255,255,.08);backdrop-filter:blur(6px);transition:transform .35s,background .35s}
+.stat:hover{transform:translateY(-8px);background:rgba(255,255,255,.16)}
+.stat b{font-family:var(--display);font-size:clamp(2.6rem,4.8vw,4rem);color:#FFB27F;display:block;line-height:1}
+.stat span{display:block;margin-top:.8rem;color:#dbecd5}
+
+/* services tabs */
+.what .head-row{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:2.6rem}
+.what .head-row h2{margin-top:.8rem;max-width:20ch}
+.tabs{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:2rem}
+.tab{border:1.5px solid var(--line);background:#fff;padding:.75rem 1.4rem;border-radius:999px;font-weight:700;font-size:.95rem;cursor:pointer;font-family:var(--body);color:var(--muted);transition:.25s}
+.tab:hover{border-color:var(--green);color:var(--green-d)}
+.tab.on{background:var(--green);border-color:var(--green);color:#fff;box-shadow:0 12px 24px -14px var(--green)}
+.pane{display:none;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.pane.on{display:grid;animation:fade .6s ease}
+@keyframes fade{from{opacity:0;transform:translateY(14px)}}
+.pane .ph{aspect-ratio:5/4;border-radius:var(--r);box-shadow:var(--shadow)}
+.pane h3{font-size:1.9rem;margin-bottom:1rem}
+.pane>div>p{color:var(--muted);margin-bottom:1.4rem}
+.ticks{list-style:none;display:grid;gap:.8rem}
+.ticks li{display:flex;gap:.8rem;align-items:flex-start;padding:.9rem 1.1rem;background:#fff;border:1px solid var(--line);border-radius:16px;transition:transform .3s,border-color .3s}
+.ticks li:hover{transform:translateX(6px);border-color:var(--green)}
+.ticks li::before{content:"";flex:none;width:22px;height:22px;margin-top:2px;border-radius:50%;background:var(--green) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/70% no-repeat}
+
+/* territoire */
+.terr{background:var(--green-l)}
+.terr .split{align-items:start}
+.terr h2{margin:.9rem 0 1.2rem}
+.chips{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.8rem}
+.pchip{display:inline-flex;align-items:center;gap:.5rem;background:#fff;border:1px solid #cfe3c7;border-radius:999px;padding:.55rem 1.1rem;font-weight:700;font-size:.93rem;color:var(--green-d);opacity:0;transform:scale(.7);transition:opacity .5s,transform .5s cubic-bezier(.3,1.5,.5,1),background .25s,color .25s}
+.pchip.in{opacity:1;transform:none}
+.pchip:hover,.pchip.on{background:var(--green);color:#fff}
+.pchip::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--orange)}
+.mapcard{position:relative;border-radius:var(--r);background:#fff;border:1px solid #cfe3c7;padding:1.2rem 1.2rem 1rem;box-shadow:var(--shadow)}
+.mapcard svg{width:100%;height:auto;display:block;max-height:640px;margin:0 auto}
+.mapcard .pv path{fill:#EFEADB;stroke:#fff;stroke-width:1.6;stroke-linejoin:round;transition:fill .3s}
+.mapcard .pv.a path{fill:var(--green)}
+.mapcard .pv.a:hover path,.mapcard .pv.a.hl path{fill:var(--green-d)}
+.mapcard .ov{pointer-events:none}
+.mapcard .ov text{font-family:var(--body);font-size:11px;font-weight:500;fill:#9a9582;text-anchor:middle;pointer-events:none}
+.mapcard .ov.a text{fill:#fff;font-weight:600;font-size:12px;paint-order:stroke;stroke:var(--green-dd);stroke-width:2.4px;stroke-linejoin:round}
+.mapcard .dot{transform-box:fill-box;transform-origin:center;transform:scale(0);transition:transform .7s cubic-bezier(.3,1.7,.5,1)}
+.mapcard.in .dot{transform:scale(1)}
+.mapcard .dot circle.c{fill:var(--orange);stroke:#fff;stroke-width:2.4}
+.mapcard .ov.hl .dot circle.c{fill:#FFB27F}
+.pulse{transform-box:fill-box;transform-origin:center;animation:pl 2.8s ease-out infinite;fill:none;stroke:var(--orange);stroke-width:2}
+@keyframes pl{0%{opacity:.9;transform:scale(.4)}100%{opacity:0;transform:scale(2.8)}}
+.legend{display:flex;gap:1.6rem;justify-content:center;flex-wrap:wrap;margin-top:.8rem;font-size:.85rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:.5rem}
+.lg{width:14px;height:14px;border-radius:4px;background:#EFEADB;border:1px solid #d9d3bf}
+.lg.a{background:var(--green);border-color:var(--green)}
+/* programmes */
+.prog{background:#fff}
+.prog .head-row{margin-bottom:2.6rem}
+.prog .head-row h2{margin-top:.8rem;max-width:18ch}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.pcard{border-radius:var(--r);overflow:hidden;background:var(--cream);border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s}
+.pcard:hover{transform:translateY(-10px);box-shadow:var(--shadow)}
+.pcard .ph{height:210px}
+.pcard .tag{position:absolute;left:1rem;top:1rem;z-index:2;background:var(--orange);color:#fff;font-weight:700;font-size:.78rem;letter-spacing:.1em;padding:.35rem .85rem;border-radius:999px}
+.pcard .bd{padding:1.7rem;display:flex;flex-direction:column;flex:1}
+.pcard h3{font-size:1.25rem;margin-bottom:.7rem}
+.pcard p{color:var(--muted);font-size:.98rem}
+.pcard .fin{margin-top:auto;padding-top:1.2rem;font-size:.85rem;color:var(--green-d);font-weight:700}
+.pcard .fin::before{content:"Avec ";font-weight:400;color:var(--muted)}
+
+/* galerie */
+.gal .head-row{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:2.4rem}
+.gal .head-row h2{margin-top:.8rem;max-width:18ch}
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:1rem}
+.mosaic button{border:0;padding:0;border-radius:18px;cursor:zoom-in;display:block}
+.mosaic button .ph{width:100%;height:100%;border-radius:18px}
+.mosaic button:nth-child(1){grid-column:span 2;grid-row:span 2}
+.mosaic button:nth-child(4){grid-row:span 2}
+.mosaic button:nth-child(6){grid-column:span 2}
+.mosaic button{position:relative}
+.mosaic button i{position:absolute;inset:auto 0 0 0;padding:1.4rem 1rem .8rem;background:linear-gradient(transparent,rgba(14,45,8,.85));color:#fff;font-style:normal;font-size:.88rem;text-align:left;opacity:0;transition:opacity .35s;border-radius:0 0 18px 18px}
+.mosaic button:hover i{opacity:1}
+#lb{position:fixed;inset:0;background:rgba(10,30,6,.93);display:none;place-items:center;z-index:200;padding:2rem;cursor:zoom-out}
+#lb.on{display:grid;animation:fade .3s}
+#lb img{max-height:88vh;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+#lb span{position:absolute;right:1.6rem;top:1rem;color:#fff;font-size:2.4rem;line-height:1}
+
+/* citation */
+.quote{background:var(--orange);color:#fff;text-align:center;overflow:hidden;padding:clamp(4rem,8vw,6.5rem) 0}
+.quote::before{content:"“";position:absolute;left:50%;top:-.2em;transform:translateX(-50%);font-family:var(--display);font-size:22rem;line-height:1;color:rgba(255,255,255,.14)}
+.quote .wrap{position:relative}
+.quote small{letter-spacing:.18em;text-transform:uppercase;font-weight:700;font-size:.8rem;color:#ffe3cf}
+.quote p{font-family:var(--display);font-size:clamp(1.9rem,4.2vw,3.4rem);line-height:1.15;max-width:22ch;margin:1rem auto 0;font-weight:500;font-style:italic}
+
+/* news */
+.news .head-row{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:2.6rem}
+.news .head-row h2{margin-top:.8rem;max-width:16ch}
+.ngrid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:1.5rem}
+.post{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .35s,box-shadow .35s}
+.post:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.post .ph{height:210px}
+.post:first-child .ph{height:280px}
+.post .ph span{position:absolute;left:1rem;top:1rem;z-index:2;background:#fff;color:var(--ink);font-weight:700;font-size:.76rem;padding:.3rem .8rem;border-radius:999px}
+.post .bd{padding:1.5rem;display:flex;flex-direction:column;flex:1}
+.post time{font-size:.85rem;color:var(--muted)}
+.post h3{font-size:1.17rem;margin:.5rem 0 1rem;line-height:1.28}
+.post .go{margin-top:auto;font-weight:700;color:var(--orange-d)}
+
+/* partenaires */
+.why{background:var(--green-dd);color:#fff;overflow:hidden}
+.why::after{content:"";position:absolute;right:-140px;top:-140px;width:460px;height:460px;border-radius:50%;background:var(--orange);opacity:.2}
+.why .head{max-width:700px;margin-bottom:3rem;position:relative;z-index:1}
+.why .eyebrow{color:#ffd2b3}
+.why h2{margin-top:.8rem}
+.wgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;position:relative;z-index:1}
+.w{border:1px solid rgba(255,255,255,.2);border-radius:var(--r);padding:1.8rem 1.5rem;background:rgba(255,255,255,.06);transition:transform .35s,background .35s}
+.w:hover{transform:translateY(-8px);background:rgba(255,255,255,.13)}
+.w .ic{width:50px;height:50px;border-radius:14px;background:var(--orange);display:grid;place-items:center;margin-bottom:1.1rem}
+.w .ic svg{width:26px;height:26px}
+.w h3{font-size:1.15rem;margin-bottom:.5rem}
+.w p{color:#cfe5c8;font-size:.95rem}
+.why .actions{margin-top:2.6rem;display:flex;gap:1rem;flex-wrap:wrap;position:relative;z-index:1}
+
+/* CTA + footer */
+.cta-sec{padding-bottom:0}
+.cta-band{background:linear-gradient(120deg,var(--orange),var(--orange-d));color:#fff;border-radius:30px;padding:clamp(2.6rem,6vw,4.6rem);display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap;position:relative;overflow:hidden;transform:translateY(50%);box-shadow:0 30px 60px -30px var(--orange-d)}
+.cta-band::after{content:"";position:absolute;right:-90px;top:-110px;width:360px;height:360px;border-radius:50%;background:rgba(255,255,255,.15)}
+.cta-band h2{max-width:18ch;position:relative;z-index:1}
+.cta-band p{opacity:.94;margin-top:.8rem;max-width:44ch;position:relative;z-index:1}
+.cta-band .btn{background:#fff;color:var(--orange-d);position:relative;z-index:1}
+.cta-band .btn:hover{background:var(--green-dd);color:#fff}
+.cta-wrap{position:relative;z-index:2;margin-bottom:-1px}
+footer{background:var(--green-dd);color:#cfe5c8;padding:11rem 0 0;margin-top:0}
+.fgrid{display:grid;grid-template-columns:1.4fr .8fr 1fr 1.1fr;gap:2.5rem}
+footer h4{font-family:var(--display);color:#fff;font-size:1.1rem;margin-bottom:1.1rem}
+footer ul{list-style:none;display:grid;gap:.6rem;font-size:.97rem}
+footer a:hover{color:#FFB27F}
+.logo-f{background:#fff;border-radius:14px;padding:.5rem .9rem;display:inline-block;margin-bottom:1.1rem}
+.logo-f img{height:50px;width:auto}
+.about-f{font-size:.97rem;max-width:36ch}
+.nf{display:flex;gap:.5rem;margin-top:1rem}
+.nf input{flex:1;min-width:0;padding:.75rem 1rem;border-radius:999px;border:0;font-family:var(--body)}
+.nf button{padding:.75rem 1.2rem;border-radius:999px;border:0;background:var(--orange);color:#fff;font-weight:700;cursor:pointer;font-family:var(--body)}
+.copy{border-top:1px solid rgba(255,255,255,.14);margin-top:3.5rem;padding:1.4rem 0;font-size:.88rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.sig a{color:#FFB27F;font-weight:500;border-bottom:1px solid rgba(255,178,127,.4);transition:color .2s,border-color .2s}
+.sig a:hover{color:#fff;border-color:#fff}
+#top{position:fixed;right:1.2rem;bottom:1.2rem;width:48px;height:48px;border-radius:50%;border:0;background:var(--orange);color:#fff;font-size:1.3rem;cursor:pointer;box-shadow:0 14px 26px -12px var(--orange);opacity:0;transform:translateY(20px);transition:.3s;z-index:80}
+#top.on{opacity:1;transform:none}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+@media(max-width:980px){
+  .hero .grid,.split,.pane{grid-template-columns:1fr}
+  .hero{padding-bottom:190px}
+  .hero-card{max-width:420px}
+  .dots,.scroll{display:none}
+  .stats,.wgrid{grid-template-columns:1fr 1fr}
+  .vgrid,.pgrid,.ngrid{grid-template-columns:1fr 1fr}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .mosaic{grid-template-columns:repeat(2,1fr)}
+  .mosaic button:nth-child(1){grid-column:span 2}
+  .burger{display:block}
+  nav ul{position:fixed;inset:74px 0 auto 0;background:var(--cream);flex-direction:column;align-items:stretch;padding:1rem 4%;border-bottom:1px solid var(--line);transform:translateY(-140%);transition:transform .35s;z-index:40;gap:.3rem}
+  nav ul.open{transform:none}
+  nav a.lnk,header.solid nav a.lnk{display:block;padding:.85rem 1rem;color:var(--ink)}
+  .collage{height:420px}
+}
+@media(max-width:600px){
+  .vgrid,.pgrid,.ngrid,.stats,.wgrid,.fgrid{grid-template-columns:1fr}
+  .mosaic{grid-auto-rows:170px}
+  .collage .seal{width:100px;height:100px}.collage .seal b{font-size:1.5rem}
+  footer{padding-top:13rem}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.mapcard .dot{transform:scale(1)!important}.rv,.pchip,.hero h1 .wd,.hero-card{opacity:1;transform:none}.slide:first-child{opacity:1}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<header class="nav" id="nav"><div class="wrap">
+  <a class="brand" href="#top-hero" aria-label="UHACOM — accueil">
+    <img data-k="logo" alt="Logo UHACOM" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span class="fb">UHA<b>COM</b></span>
+  </a>
+  <nav><ul id="menu">
+    <li><a class="lnk" href="#top-hero">Accueil</a></li>
+    <li><a class="lnk" href="uhacom-qui-sommes-nous.html">Qui sommes-nous ?</a></li>
+    <li><a class="lnk" href="https://uhacom.bi/nos-projets/">Programmes</a></li>
+    <li><a class="lnk" href="https://uhacom.bi/actualites/">Actualités</a></li>
+    <li><a class="lnk" href="https://uhacom.bi/rapports/">Publications</a></li>
+    <li><a class="lnk" href="https://uhacom.bi/les-cooperatives-membres/">Coopératives</a></li>
+    <li><a class="btn btn-orange" href="https://uhacom.bi/contacter-nous/" style="padding:.65rem 1.3rem">Contactez-nous</a></li>
+  </ul></nav>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</div></header>
+
+<!-- HERO -->
+<div class="hero" id="top-hero">
+  <div class="slides" id="slides"></div>
+  <div class="wrap grid">
+    <div>
+      <span class="eyebrow">Union Haguruka des Coopératives Multifilières</span>
+      <h1 id="h1" data-text="Des paysans unis pour la *prospérité* et la *dignité*"></h1>
+      <p class="lead" style="animation:rise 1s 1.2s both">Depuis 2014, l'UHACOM rassemble des coopératives agricoles du Burundi pour renforcer leur gouvernance, promouvoir l'agriculture familiale agroécologique et porter la voix du petit paysan.</p>
+      <div class="cta" style="animation:rise 1s 1.4s both">
+        <a class="btn btn-orange" href="uhacom-qui-sommes-nous.html">Découvrir l'UHACOM <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#programmes">Nos programmes</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="big" data-count="36">0</div>
+      <p>coopératives agricoles membres de l'Union</p>
+      <div class="row">
+        <div><b data-count="15600" data-sep="1">0</b><p>producteurs membres</p></div>
+        <div><b data-count="32">0</b><p>communes</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll"><i></i>Défiler</div>
+  <div class="dots" id="dots"></div>
+  <svg class="hills" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
+    <path class="h1" d="M-40 120 C 160 50, 320 50, 520 105 S 860 170, 1060 98 S 1360 40, 1500 98 L1500 210 L-40 210Z" fill="#E85C0D" opacity=".9"/>
+    <path class="h2" d="M-40 150 C 200 85, 380 95, 600 140 S 940 185, 1140 132 S 1380 105, 1500 140 L1500 210 L-40 210Z" fill="#2F8A1D"/>
+    <path d="M0 178 C 300 150, 520 192, 820 174 S 1280 156, 1440 178 L1440 210 L0 210Z" fill="#FBF8F1"/>
+  </svg>
+</div>
+
+<div class="strip" id="partenaires"><div class="wrap">
+  <div class="strip-head"><span class="eyebrow">Nos partenaires</span><h2>Ils font route <em>avec nous</em></h2></div>
+</div>
+<div class="marquee"><div class="track" id="track"></div></div>
+</div>
+
+<!-- A PROPOS -->
+<section class="about"><div class="wrap split">
+  <div class="collage rv">
+    <div class="ph a hov"><img data-k="real2" alt="Producteurs et coopératives de l'UHACOM" loading="lazy"></div>
+    <div class="ph b hov"><img data-k="dsc4398" alt="Activité de terrain de l'UHACOM" loading="lazy"></div>
+    <div class="seal"><span><b>2014</b><small>Naissance de l'Union</small></span></div>
+  </div>
+  <div class="rv d1">
+    <span class="eyebrow">À propos</span>
+    <h2>Le maillon qui relie les <em>coopératives</em> du Burundi</h2>
+    <p class="lead">Créée le 5 décembre 2014 par des leaders paysans, l'UHACOM est une organisation faîtière : elle réunit des coopératives agricoles de plusieurs provinces et défend leurs intérêts.</p>
+    <p>Sa mission : renforcer le capital productif des coopératives d'agriculteurs grâce à des projets économiques et sociaux, au plaidoyer pour de bonnes politiques agricoles et à la formation de leaders attachés à la bonne gouvernance et aux droits humains, notamment ceux des femmes et des jeunes.</p>
+    <div class="vision"><small>Notre vision</small>Le petit paysan a amélioré ses conditions économiques et sociales et participe aux décisions de sa communauté.</div>
+    <a class="btn btn-green" href="uhacom-qui-sommes-nous.html">Notre histoire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+</div></section>
+
+<!-- VALEURS -->
+<section class="vals"><div class="wrap">
+  <div class="head rv"><span class="eyebrow">Ce qui nous guide</span><h2>Trois valeurs, un même cap : la dignité du paysan</h2></div>
+  <div class="vgrid">
+    <article class="val rv"><span class="n">01</span><h3>L'autopromotion</h3><p>Les paysans sont les premiers acteurs de leur développement : ils décident, ils s'organisent, ils construisent.</p></article>
+    <article class="val rv d1"><span class="n">02</span><h3>L'économie sociale et solidaire</h3><p>Produire, transformer et vendre ensemble pour que la richesse créée profite d'abord aux membres.</p></article>
+    <article class="val rv d2"><span class="n">03</span><h3>La démocratie</h3><p>Des coopératives gouvernées par leurs membres, avec des leaders formés et redevables.</p></article>
+  </div>
+</div></section>
+
+<!-- IMPACT -->
+<section class="impact"><div class="bg" id="pbg"></div><div class="wrap">
+  <div class="head rv"><span class="eyebrow">Notre impact</span><h2>Un réseau paysan solide, au cœur du pays</h2></div>
+  <div class="stats">
+    <div class="stat rv"><b data-count="36">0</b><span>Coopératives membres</span></div>
+    <div class="stat rv d1"><b data-count="15600" data-sep="1">0</b><span>Producteurs membres</span></div>
+    <div class="stat rv d2"><b data-count="32">0</b><span>Communes</span></div>
+    <div class="stat rv d3"><b data-count="12">0</b><span>Années d'engagement</span></div>
+  </div>
+</div></section>
+
+<!-- CE QUE NOUS FAISONS -->
+<section class="what"><div class="wrap">
+  <div class="head-row rv"><div><span class="eyebrow">Nos interventions</span><h2>Ce que nous faisons, <em>concrètement</em></h2></div></div>
+  <div class="tabs rv" id="tabs">
+    <button class="tab on" data-t="0">Renforcer les coopératives</button>
+    <button class="tab" data-t="1">Produire durablement</button>
+    <button class="tab" data-t="2">Vendre et défendre</button>
+  </div>
+  <div class="pane on" data-p="0">
+    <div class="ph"><img data-k="uhm" alt="Réunion de coopérative" loading="lazy"></div>
+    <div>
+      <h3>Des coopératives mieux gouvernées</h3>
+      <p>Nous accompagnons les coopératives pour qu'elles deviennent des organisations solides, au service de leurs membres.</p>
+      <ul class="ticks">
+        <li>Formation des leaders paysans par la recherche-action participative</li>
+        <li>Médiation des conflits au sein des coopératives</li>
+        <li>Échanges d'informations, de biens et de services entre coopératives</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pane" data-p="1">
+    <div class="ph"><img data-k="foire2" alt="Productions agroécologiques" loading="lazy"></div>
+    <div>
+      <h3>Une agriculture familiale résiliente</h3>
+      <p>Agroécologie, intrants de qualité, financement : nous aidons les ménages à produire mieux et durablement.</p>
+      <ul class="ticks">
+        <li>Appui technique à une agriculture familiale agroécologique, pour la résilience climatique et la souveraineté alimentaire</li>
+        <li>Accès facilité à des intrants agricoles de qualité</li>
+        <li>Mobilisation de fonds pour financer les intrants des ménages</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pane" data-p="2">
+    <div class="ph"><img data-k="mar" alt="Valorisation des produits" loading="lazy"></div>
+    <div>
+      <h3>Des produits valorisés, une voix entendue</h3>
+      <p>De la transformation au plaidoyer, nous ouvrons des marchés et défendons les droits des producteurs ruraux.</p>
+      <ul class="ticks">
+        <li>Appui à la transformation et au conditionnement des produits</li>
+        <li>Aide à la commercialisation, surtout des produits transformés et labellisés</li>
+        <li>Plaidoyer en faveur des coopératives et du monde rural</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- TERRITOIRE -->
+<section class="terr" id="ancrage"><div class="wrap split">
+  <div class="rv">
+    <span class="eyebrow">Notre ancrage</span>
+    <h2>Voyez <em>où nous intervenons</em></h2>
+    <p class="lead">Les coopératives membres de l'UHACOM cultivent, transforment et vendent ensemble dans plusieurs provinces du Burundi. Chaque point marque une province d'intervention.</p>
+    <div class="chips" id="chips"></div>
+    <a class="btn btn-green" style="margin-top:2rem" href="https://uhacom.bi/les-cooperatives-membres/">Voir toutes les coopératives <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </div>
+  <div class="mapcard rv d1">
+    <svg id="bimap" role="img" aria-label="Carte du Burundi avec les provinces d'intervention de l'UHACOM"></svg>
+    <div class="legend"><span><i class="lg a"></i>Province d'intervention</span><span><i class="lg"></i>Autres provinces</span></div>
+  </div>
+</div></section>
+
+<!-- PROGRAMMES -->
+<section class="prog" id="programmes"><div class="wrap">
+  <div class="head-row rv"><span class="eyebrow">Programmes en cours</span><h2>Des projets conduits avec nos partenaires</h2></div>
+  <div class="pgrid">
+    <article class="pcard rv"><div class="ph hov"><span class="tag">APTES · 2022–2026</span><img data-k="foire1" alt="Programme APTES" loading="lazy"></div>
+      <div class="bd"><h3>Agroécologie, pilier d'une transition écologique et sociale</h3><p>Programme quinquennal mis en œuvre avec ACORD, CAM et OAP dans les communes de Mpanda, Bubanza, Cibitoke, Bukinanyana et Mugina.</p><div class="fin">Entraide et Fraternité</div></div></article>
+    <article class="pcard rv d1"><div class="ph hov"><span class="tag">PADIP</span><img data-k="real1" alt="Programme PADIP" loading="lazy"></div>
+      <div class="bd"><h3>Programme d'Agroécologie pour la Dignité des Producteurs Agricoles</h3><p>Consortium de sept partenaires, avec quatre coopératives accompagnées dans les zones de Kirundo et Gitobe, autour des semences locales et du café.</p><div class="fin">Broederlijk Delen</div></div></article>
+    <article class="pcard rv d2"><div class="ph hov"><span class="tag">PAFOP</span><img data-k="dsc4633" alt="Programme PAFOP" loading="lazy"></div>
+      <div class="bd"><h3>Promotion des pratiques Agroécologiques par la Formation et le Plaidoyer des Organisations Paysannes</h3><p>Un projet dont la troisième phase se prépare : un avis de recrutement de coordonnateur est ouvert.</p><div class="fin">Fédération genevoise de coopération</div></div></article>
+  </div>
+</div></section>
+
+<!-- GALERIE -->
+<section class="gal"><div class="wrap">
+  <div class="head-row rv">
+    <div><span class="eyebrow">Nos réalisations en images</span><h2>Le travail des paysans, sous nos yeux</h2></div>
+    <a class="btn btn-line" href="https://www.flickr.com/people/uhacom/" target="_blank" rel="noopener">Toute la galerie sur Flickr</a>
+  </div>
+  <div class="mosaic rv" id="mosaic"></div>
+</div></section>
+<div id="lb"><span>×</span><img alt=""></div>
+
+<!-- CITATION -->
+<section class="quote"><div class="wrap rv">
+  <small>Ce que nous voulons</small>
+  <p>Que le petit paysan vive dignement de la terre qu'il cultive.</p>
+</div></section>
+
+<!-- ACTUALITES -->
+<section class="news"><div class="wrap">
+  <div class="head-row rv">
+    <div><span class="eyebrow">Actualités</span><h2>La vie de l'Union</h2></div>
+    <a class="btn btn-line" href="https://uhacom.bi/actualites/">Toutes les actualités</a>
+  </div>
+  <div class="ngrid">
+    <a class="post rv" href="https://uhacom.bi/foire-nationale-agricole-2026-les-cooperatives-de-luhacom-valorisent-leurs-productions/"><div class="ph hov"><span>Événement</span><img data-k="foire1" alt="" loading="lazy"></div>
+      <div class="bd"><time>10 septembre 2026</time><h3>Foire nationale agricole 2026 : les coopératives de l'UHACOM valorisent leurs productions</h3><span class="go">Lire l'article →</span></div></a>
+    <a class="post rv d1" href="https://uhacom.bi/vers-la-mise-en-place-de-la-strategie-nationale-dagroecologie-du-burundi-2027-2036/"><div class="ph hov"><span>Plaidoyer</span><img data-k="dsc4633" alt="" loading="lazy"></div>
+      <div class="bd"><time>22 septembre 2026</time><h3>Vers la mise en place de la Stratégie nationale d'agroécologie du Burundi 2027-2036</h3><span class="go">Lire l'article →</span></div></a>
+    <a class="post rv d2" href="https://uhacom.bi/avis-de-recrutement-coordonnateur-de-projet-pafop-3/"><div class="ph hov"><span>Opportunités</span></div>
+      <div class="bd"><time>4 novembre 2026</time><h3>Avis de recrutement : Coordonnateur de projet (PAFOP 3)</h3><span class="go">Lire l'avis →</span></div></a>
+  </div>
+</div></section>
+
+<!-- PARTENAIRES -->
+<section class="why"><div class="wrap">
+  <div class="head rv"><span class="eyebrow">Pour les partenaires</span><h2>Pourquoi agir avec l'UHACOM ?</h2></div>
+  <div class="wgrid">
+    <div class="w rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c.4-3.6 3-5.6 6-5.6s5.6 2 6 5.6M15.5 14.6c2.6-.3 5 1.2 5.5 4.4"/></svg></div><h3>Un réseau ancré</h3><p>36 coopératives et 15 600 producteurs qui donnent accès au terrain.</p></div>
+    <div class="w rv d1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></div><h3>Une expérience éprouvée</h3><p>Des programmes menés avec plusieurs partenaires : APTES, PADIP, PAFOP.</p></div>
+    <div class="w rv d2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h3l5 4V6L7 10H4z"/><path d="M16 9c1.6 1.5 1.6 4.5 0 6"/></svg></div><h3>Une voix dans le plaidoyer</h3><p>Présence dans les espaces de concertation, dont les travaux sur la stratégie nationale d'agroécologie.</p></div>
+    <div class="w rv d3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h7"/></svg></div><h3>Des comptes rendus publics</h3><p>Un rapport public annuel pour rendre compte de nos actions et de nos résultats.</p></div>
+  </div>
+  <div class="actions rv">
+    <a class="btn btn-orange" href="https://uhacom.bi/wp-content/uploads/2026/04/RAPPORT-PUBLIC-2024-2.pdf" target="_blank" rel="noopener">Lire le rapport public 2024</a>
+    <a class="btn btn-ghost" href="https://uhacom.bi/rapports/">Toutes les publications</a>
+  </div>
+</div></section>
+
+<!-- CTA -->
+<section class="cta-sec"><div class="wrap cta-wrap">
+  <div class="cta-band rv">
+    <div><h2>Construisons ensemble une agriculture paysanne prospère</h2><p>Partenaire, bailleur, institution ou coopérative : parlons de ce que nous pouvons faire ensemble.</p></div>
+    <a class="btn" href="https://uhacom.bi/contacter-nous/">Prendre contact</a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="fgrid">
+    <div>
+      <div class="logo-f"><img data-k="logo" alt="UHACOM" onerror="this.parentNode.innerHTML='<b style=&quot;color:#1F5F12;font-family:Playfair Display,serif&quot;>UHACOM</b>'"></div>
+      <p class="about-f">Union Haguruka des Coopératives Multifilières — union de coopératives agricoles, siège à Bujumbura.</p>
+    </div>
+    <div><h4>Liens</h4><ul>
+      <li><a href="uhacom-qui-sommes-nous.html">Qui sommes-nous ?</a></li><li><a href="https://uhacom.bi/nos-projets/">Programmes</a></li><li><a href="https://uhacom.bi/actualites/">Actualités</a></li><li><a href="https://uhacom.bi/rapports/">Publications</a></li><li><a href="https://uhacom.bi/les-cooperatives-membres/">Coopératives</a></li></ul></div>
+    <div><h4>Contact</h4><ul>
+      <li>1ère Avenue, N°6, Kamenge, Gihosha<br>Ntahangwa, Bujumbura, Burundi</li><li><a href="mailto:info@uhacom.bi">info@uhacom.bi</a></li><li><a href="tel:+25722279343">+257 22 27 93 43</a></li></ul></div>
+    <div><h4>Restons en lien</h4><ul>
+      <li><a href="https://www.facebook.com/Uhacomm/" target="_blank" rel="noopener">Facebook</a> · <a href="https://twitter.com/uhacom_burundi" target="_blank" rel="noopener">X</a> · <a href="https://m.youtube.com/@uhacom" target="_blank" rel="noopener">YouTube</a></li></ul>
+      <form class="nf" onsubmit="event.preventDefault();this.innerHTML='<span>Merci, à bientôt !</span>'"><input type="email" placeholder="Votre courriel" required aria-label="Courriel"><button>S'inscrire</button></form>
+    </div>
+  </div>
+  <div class="copy"><span>© 2026 UHACOM. Tous droits réservés.</span><span class="sig">Conception : <a href="https://agence.nyaburunga.com" target="_blank" rel="noopener">Agence Nyaburunga</a></span></div>
+</div></footer>
+<button id="top" aria-label="Haut de page">↑</button>
+
+<script>
+const B="https://uhacom.bi/wp-content/uploads/";
+const IMG={
+  logo:B+"2024/01/cropped-LOGO-UHACOM.png",
+  foire1:B+"2026/09/1788510888084.jpg",
+  real1:B+"2026/09/1788510887389.jpg",
+  real2:B+"2026/09/1788510887224.jpg",
+  foire2:B+"2026/09/1789985239582-890x664.jpg",
+  mar:B+"2026/03/DSC_0749-890x664.jpg",
+  uhm:B+"2022/06/UHM_0075-scaled-1.jpg",
+  dsc4398:B+"2024/08/22092024-DSC_4398-scaled.jpg",
+  dsc4633:B+"2024/07/25092024-DSC_4633-890x664.jpg"
+};
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+
+/* photos : si une image ne charge pas, le dégradé de marque reste visible */
+$$("img[data-k]").forEach(i=>{
+  i.referrerPolicy="no-referrer";
+  if(!i.getAttribute("onerror")) i.onerror=()=>{i.style.display="none"};
+  i.src=IMG[i.dataset.k];
+});
+
+/* hero : titre mot à mot */
+(()=>{
+  const h=$("#h1");let html="",n=0;
+  h.dataset.text.split(" ").forEach(w=>{
+    const em=w.startsWith("*"),clean=w.replace(/\*/g,"");
+    html+=`<span class="wd" style="animation-delay:${.25+n*.11}s">${em?`<em>${clean}</em>`:clean}</span> `;n++;
+  });
+  h.innerHTML=html;
+})();
+
+/* hero : diaporama */
+const HERO=["foire1","real1","uhm","dsc4398"];
+const sl=$("#slides"),dt=$("#dots");let cur=0,timer;
+HERO.forEach((k,i)=>{
+  const s=document.createElement("div");s.className="slide"+(i?"":" on");s.style.backgroundImage=`url(${IMG[k]})`;sl.appendChild(s);
+  const b=document.createElement("button");b.setAttribute("aria-label","Photo "+(i+1));if(!i)b.className="on";b.onclick=()=>{go(i);restart()};dt.appendChild(b);
+});
+function go(n){
+  const s=$$(".slide"),d=$$("#dots button");
+  s[cur].classList.remove("on");d[cur].classList.remove("on");
+  cur=n;void s[cur].offsetWidth;
+  s[cur].classList.add("on");d[cur].classList.add("on");
+}
+function restart(){clearInterval(timer);timer=setInterval(()=>go((cur+1)%HERO.length),6000)}
+restart();
+
+/* ============================================================
+   PARTENAIRES — c'est ici que vous placez les vrais logos.
+   Pour chaque partenaire :
+     logo : collez le LIEN de l'image du logo (ex. "https://uhacom.bi/wp-content/uploads/2026/11/logo-bd.png")
+     url  : (facultatif) lien vers le site du partenaire
+   Tant que "logo" est vide, le nom du partenaire s'affiche à la place.
+   Ajoutez ou retirez des lignes librement.
+   Logos déjà présents sur l'ancien site (à rattacher au bon partenaire) :
+     2023/11/BD.png · 2023/11/download-2-150x150-1.png · 2023/11/partenaire.jpg
+     2024/08/Centre-120x120.png · 2023/11/ired-200x150-1.gif
+   ============================================================ */
+const PARTNERS=[
+  {name:"Broederlijk Delen",                    logo:"", url:""},
+  {name:"Entraide et Fraternité",               logo:"", url:""},
+  {name:"Fédération genevoise de coopération",  logo:"", url:""},
+  {name:"ACORD",                                logo:"", url:""},
+  {name:"CAM",                                  logo:"", url:""},
+  {name:"OAP",                                  logo:"", url:""},
+  {name:"ADISCO",                               logo:"", url:""},
+  {name:"Université Populaire Haguruka",        logo:"", url:""},
+  {name:"COCOCA",                               logo:"", url:""},
+  {name:"IRED",                                 logo:"", url:""}
+];
+const logoTile=p=>{
+  const inner=p.logo?`<img src="${p.logo}" alt="${p.name}" loading="lazy" referrerpolicy="no-referrer" onerror="this.outerHTML='<span>${p.name.replace(/'/g,"&#39;")}</span>'">`:`<span>${p.name}</span>`;
+  return p.url?`<a class="plogo" href="${p.url}" target="_blank" rel="noopener" title="${p.name}">${inner}</a>`:`<div class="plogo" title="${p.name}">${inner}</div>`;
+};
+$("#track").innerHTML=[...PARTNERS,...PARTNERS].map(logoTile).join("");
+
+/* carte du Burundi (tracé des 18 provinces) */
+const MAP={"w":400,"h":466.4,"p":[{"n":"Gitega","a":true,"d":"M155.5 290.1L158.2 290.0L160.6 290.6L161.6 290.5L163.2 288.7L164.3 288.9L167.0 291.6L167.9 292.1L168.5 293.5L167.9 294.9L168.4 297.5L167.4 300.0L167.1 304.6L166.5 308.1L166.0 313.2L165.2 313.9L164.6 315.3L164.3 319.1L163.4 320.8L163.2 322.9L162.1 325.6L162.1 326.5L162.4 327.1L162.7 327.3L164.4 327.1L166.4 327.7L166.9 327.6L168.5 326.4L170.7 323.2L172.0 322.2L174.6 317.2L174.3 314.9L174.6 314.2L176.5 313.7L177.3 313.0L178.0 309.2L179.4 306.4L180.1 306.2L180.9 307.1L181.0 307.9L180.7 309.1L181.1 310.1L184.1 311.3L184.9 312.1L184.7 314.8L183.9 316.9L184.1 317.8L185.9 320.1L187.1 320.9L189.6 321.4L191.3 322.1L193.6 322.2L194.7 322.5L195.2 324.7L195.7 325.2L196.9 325.2L197.5 325.8L197.6 326.9L199.7 330.3L200.4 330.8L201.9 330.8L203.5 331.6L204.3 331.4L204.5 330.8L204.2 330.0L204.1 327.8L202.5 326.5L202.4 326.0L204.3 323.0L204.5 320.8L205.2 320.2L209.2 318.9L211.4 317.3L215.0 316.4L215.4 315.9L215.2 315.3L211.1 313.1L210.4 312.7L210.2 312.1L213.9 308.7L214.3 307.4L215.1 306.5L216.7 305.5L220.1 304.8L220.9 304.0L222.6 303.4L222.8 302.9L225.5 302.4L228.1 302.3L229.8 300.1L230.2 298.9L231.2 297.9L231.3 297.2L232.4 296.2L233.5 294.1L235.7 292.7L235.9 291.3L235.5 289.4L236.9 286.9L236.7 285.8L236.6 283.8L238.0 281.1L238.1 278.5L236.3 275.4L235.5 272.2L233.9 269.1L233.3 267.3L233.5 265.9L233.9 265.2L233.7 263.9L232.7 262.2L231.3 261.1L230.5 256.1L228.2 252.3L229.8 249.4L230.7 245.6L233.0 242.6L233.0 240.8L229.9 238.2L228.5 236.6L227.8 234.4L226.2 233.4L225.5 231.6L225.3 229.3L224.6 229.3L222.5 230.5L221.8 231.2L220.5 233.6L219.1 233.9L218.5 233.5L218.0 230.7L216.1 228.8L214.3 227.5L213.2 227.1L212.1 225.3L212.8 222.9L214.4 222.8L215.3 222.0L216.3 219.4L216.4 217.5L217.3 215.7L219.9 212.5L221.3 211.5L221.4 211.0L221.1 210.2L221.6 208.5L221.6 207.0L221.2 204.5L222.1 203.3L220.9 201.2L220.8 199.9L219.6 199.2L218.1 197.6L216.1 196.9L215.2 195.4L215.1 194.0L214.4 193.2L213.7 192.9L211.5 190.2L209.5 187.2L208.4 184.4L207.4 183.2L206.0 182.8L205.0 183.0L204.3 184.7L201.0 186.4L200.3 187.7L199.6 188.2L198.6 188.4L196.2 187.8L195.3 187.3L194.8 186.6L194.3 179.8L196.9 176.3L197.5 171.3L198.4 170.2L199.6 169.6L200.0 167.4L199.0 167.5L197.1 167.5L196.5 166.7L196.3 165.9L195.0 163.5L192.4 162.0L190.8 161.4L189.4 161.3L186.3 161.8L185.0 162.1L184.2 163.4L182.7 164.3L179.0 169.1L177.6 170.1L177.7 172.4L178.8 174.5L181.8 176.1L183.2 176.2L183.6 176.5L183.7 179.8L183.5 181.1L181.5 182.2L177.0 187.2L176.0 187.6L175.3 188.6L174.6 191.3L174.6 192.9L177.8 196.9L181.1 197.4L183.7 199.1L183.4 199.9L182.2 200.3L178.7 200.3L177.1 201.2L176.5 202.1L175.8 202.5L174.9 204.8L169.2 210.6L169.0 213.3L171.7 213.8L172.4 215.5L173.2 215.9L175.9 216.0L176.2 216.3L176.7 218.3L178.9 220.0L179.6 221.2L181.1 222.5L181.0 224.4L179.9 226.3L178.5 227.0L178.1 227.7L178.3 228.3L180.5 229.7L183.6 229.7L185.4 232.2L187.9 233.5L188.5 234.2L188.3 234.8L188.9 236.5L188.4 237.0L186.3 237.4L185.9 237.9L185.3 240.8L184.6 242.2L185.1 244.6L185.0 246.9L184.4 250.5L184.5 252.3L184.1 254.3L183.9 258.5L183.4 259.5L181.4 261.8L180.1 262.1L177.9 262.6L175.5 262.5L174.1 262.1L172.2 262.4L171.2 262.8L169.4 264.5L168.1 264.8L167.8 265.7L166.4 267.7L166.2 270.1L167.6 272.3L169.4 274.4L171.4 279.9L172.5 282.0L173.6 282.9L173.7 283.8L173.3 284.4L171.3 284.3L170.4 283.9L169.6 283.0L168.3 282.7L163.6 282.8L161.0 283.2L158.7 284.8L157.2 286.9L155.4 288.3L155.1 288.8L155.5 290.1Z","x":199.1,"y":255.1},{"n":"Kirundo","a":true,"d":"M294.3 9.1L293.6 9.3L291.2 11.3L288.2 14.4L285.2 15.7L279.9 15.5L274.8 13.1L271.9 13.0L270.4 12.3L268.2 10.7L267.0 10.8L264.9 12.1L263.6 12.3L262.5 12.9L262.3 14.2L261.1 15.7L259.0 16.9L258.7 19.6L257.9 22.0L256.1 24.7L255.0 25.5L252.4 24.9L251.2 25.0L246.0 27.0L244.1 27.1L236.8 24.1L229.9 17.3L226.5 11.7L224.6 9.3L221.8 7.4L218.8 6.8L216.6 7.0L215.3 6.8L207.1 3.3L206.4 4.2L206.5 7.6L205.8 9.2L204.1 10.9L203.8 12.4L205.5 15.4L206.3 19.0L207.2 20.9L209.1 32.6L208.5 37.5L205.7 39.4L204.3 40.1L203.6 40.9L201.6 47.6L199.1 52.6L198.9 53.8L201.1 59.8L200.8 64.9L201.1 67.1L200.5 68.6L200.6 69.8L201.6 70.6L201.9 72.0L201.7 72.7L203.5 73.1L208.9 75.0L213.9 78.1L218.4 81.4L220.1 83.4L220.2 84.8L219.5 86.3L219.5 87.5L220.5 88.6L222.6 90.3L227.2 92.9L228.1 96.3L229.3 98.1L230.3 99.1L230.7 100.3L230.6 101.1L231.1 101.9L232.5 101.9L232.9 101.8L234.7 101.0L237.1 99.3L238.3 99.3L239.7 100.7L241.3 101.2L242.5 100.6L243.6 99.3L244.7 95.7L248.7 89.6L249.6 89.7L252.0 91.5L253.2 91.5L259.0 87.3L260.5 85.3L265.5 81.0L268.3 80.1L272.0 79.4L273.1 79.6L273.8 81.2L275.1 81.8L276.5 81.3L280.1 76.4L284.2 72.2L286.2 69.1L289.0 68.8L290.1 68.1L292.0 63.8L293.0 62.4L294.3 61.6L296.4 62.0L298.7 61.9L301.1 61.7L302.1 61.2L304.4 56.5L304.7 54.1L304.0 50.6L304.8 49.0L305.8 47.7L305.2 45.9L302.6 42.9L302.3 40.8L302.8 39.4L305.5 36.7L305.8 33.7L301.7 27.6L300.3 22.3L298.1 18.6L294.3 9.1Z","x":250.0,"y":50.2},{"n":"Muyinga","a":true,"d":"M232.5 101.9L233.3 103.2L237.2 105.3L238.2 106.3L237.9 107.4L238.1 108.4L239.2 109.9L241.3 112.0L242.1 113.4L242.2 114.8L243.1 116.0L245.2 117.7L248.8 114.6L249.9 114.5L252.2 115.8L256.5 117.1L257.5 118.1L257.5 118.7L256.6 118.9L254.7 121.1L253.6 121.5L254.1 128.7L261.9 128.2L263.8 128.7L265.1 129.8L268.5 131.3L269.4 132.2L269.9 133.4L271.8 134.7L273.4 136.2L274.8 137.9L276.1 140.2L276.2 141.3L275.7 142.4L275.8 150.3L275.0 154.6L275.2 155.8L274.2 158.5L273.9 160.3L273.2 161.6L271.8 162.9L269.6 166.6L269.5 167.6L268.8 168.8L267.1 170.6L265.7 174.1L266.1 175.1L267.5 176.1L267.8 177.9L268.8 178.8L271.0 179.5L271.9 180.2L272.8 181.6L274.9 182.1L276.6 182.1L278.3 180.9L280.8 179.9L282.8 180.2L284.0 180.8L284.0 182.1L285.0 182.5L286.7 182.2L288.0 181.2L289.4 180.7L291.3 181.8L291.6 181.9L292.7 182.2L294.4 182.6L294.6 182.1L294.2 181.2L293.8 178.2L295.7 176.9L297.0 176.5L297.7 175.3L298.2 174.9L297.7 173.3L298.7 172.4L298.6 171.5L297.3 169.2L297.5 167.8L298.2 166.0L299.0 164.8L300.4 164.2L301.8 163.8L303.5 163.9L303.9 163.0L303.8 162.3L304.6 161.1L305.8 161.3L306.7 160.6L306.9 156.9L306.2 154.9L306.8 153.8L308.7 151.6L309.0 149.9L311.3 149.3L312.0 148.5L312.2 146.0L313.9 145.9L315.2 146.7L317.8 145.3L318.5 141.8L319.3 141.0L320.4 140.9L320.2 139.6L321.3 138.5L321.2 137.7L320.3 137.3L318.5 133.9L315.9 131.1L314.4 129.8L312.8 129.3L310.9 128.1L310.4 126.8L310.2 124.6L309.6 121.8L308.3 121.1L306.0 120.9L305.0 119.3L305.0 117.7L306.9 113.2L307.9 109.9L311.2 104.5L312.4 99.0L310.7 95.9L311.2 94.1L316.3 91.5L315.7 90.4L316.2 88.9L318.5 87.6L320.4 88.3L322.9 86.5L329.2 80.2L330.2 76.6L330.0 75.2L329.7 74.1L328.8 73.8L327.7 73.9L325.9 74.8L324.9 76.4L323.1 77.5L318.2 79.7L315.6 82.1L314.4 82.0L311.8 79.8L309.1 79.5L306.7 76.7L306.6 75.5L307.4 74.0L309.9 71.0L314.6 61.7L320.3 52.7L320.8 50.8L320.4 48.5L320.4 46.6L321.0 45.8L322.6 45.5L325.6 39.0L328.1 35.4L328.7 32.0L329.9 29.2L330.7 25.6L331.6 23.3L332.7 21.7L331.6 20.4L329.2 20.0L326.9 19.1L325.3 17.0L322.0 14.5L321.1 13.1L320.0 12.1L317.5 11.7L317.3 10.6L317.7 9.7L317.3 8.5L315.4 7.3L315.2 5.7L316.0 2.9L315.5 1.6L313.9 1.5L312.0 2.3L310.2 3.5L308.4 3.4L306.7 2.3L305.5 0.7L304.3 0.0L302.1 0.2L300.5 0.9L298.1 3.7L296.6 8.2L294.3 9.1L298.1 18.6L300.3 22.3L301.7 27.6L305.8 33.7L305.5 36.7L302.8 39.4L302.3 40.8L302.6 42.9L305.2 45.9L305.8 47.7L304.8 49.0L304.0 50.6L304.7 54.1L304.4 56.5L302.1 61.2L301.1 61.7L298.7 61.9L296.4 62.0L294.3 61.6L293.0 62.4L292.0 63.8L290.1 68.1L289.0 68.8L286.2 69.1L284.2 72.2L280.1 76.4L276.5 81.3L275.1 81.8L273.8 81.2L273.1 79.6L272.0 79.4L268.3 80.1L265.5 81.0L260.5 85.3L259.0 87.3L253.2 91.5L252.0 91.5L249.6 89.7L248.7 89.6L244.7 95.7L243.6 99.3L242.5 100.6L241.3 101.2L239.7 100.7L238.3 99.3L237.1 99.3L234.7 101.0L232.9 101.8L232.5 101.9Z","x":290.8,"y":100.6},{"n":"Ngozi","a":true,"d":"M200.0 167.4L200.7 167.4L202.2 166.8L202.8 165.9L202.6 162.2L203.6 161.2L205.4 160.8L206.8 161.0L208.4 160.7L209.4 159.3L211.1 154.8L212.5 152.5L212.5 151.5L213.4 150.4L216.3 149.1L217.5 148.0L218.2 146.6L219.8 145.5L220.8 145.5L221.9 146.1L224.6 146.4L226.4 144.6L229.6 144.9L234.1 144.5L237.5 141.6L242.8 138.0L246.3 136.8L248.1 135.8L254.1 128.7L253.6 121.5L254.7 121.1L256.6 118.9L257.5 118.7L257.5 118.1L256.5 117.1L252.2 115.8L249.9 114.5L248.8 114.6L245.2 117.7L243.1 116.0L242.2 114.8L242.1 113.4L241.3 112.0L239.2 109.9L238.1 108.4L237.9 107.4L238.2 106.3L237.2 105.3L233.3 103.2L232.5 101.9L231.1 101.9L230.6 101.1L230.7 100.3L230.3 99.1L229.3 98.1L228.1 96.3L227.2 92.9L222.6 90.3L220.5 88.6L219.5 87.5L219.5 86.3L220.2 84.8L220.1 83.4L218.4 81.4L213.9 78.1L208.9 75.0L203.5 73.1L201.7 72.7L200.1 79.4L197.1 85.9L194.6 89.2L192.4 94.3L190.5 95.7L189.6 96.9L187.9 98.0L185.3 98.8L183.3 100.3L181.3 101.4L176.2 100.2L175.3 99.1L174.9 97.4L173.4 96.3L171.7 96.2L169.6 98.1L166.3 98.6L164.3 104.9L163.3 106.5L162.0 107.8L158.6 108.1L156.2 109.1L154.3 109.2L152.5 108.7L144.1 103.8L142.9 103.5L142.6 112.0L141.3 112.3L140.0 111.8L137.9 113.5L137.3 114.7L137.8 116.1L139.2 118.1L140.6 119.6L142.7 120.6L148.0 121.9L149.6 121.6L150.8 121.8L151.5 122.6L151.4 123.6L152.2 124.8L153.2 125.4L153.7 127.2L153.7 128.4L152.5 129.8L152.1 131.6L152.3 132.8L153.7 134.2L155.2 135.0L157.3 134.7L158.7 133.1L159.9 132.5L160.7 131.3L161.4 131.1L162.6 131.8L163.6 132.9L163.8 139.4L166.9 144.5L171.1 147.3L172.3 148.9L172.8 150.3L172.7 151.8L174.3 152.3L176.4 152.1L178.4 151.5L181.0 150.2L183.7 151.2L186.5 150.7L187.5 150.1L189.0 150.1L189.4 150.5L187.6 153.8L186.3 161.8L189.4 161.3L190.8 161.4L192.4 162.0L195.0 163.5L196.3 165.9L196.5 166.7L197.1 167.5L199.0 167.5L200.0 167.4Z","x":199.9,"y":121.4},{"n":"Makamba","a":false,"d":"M256.0 380.6L254.3 379.9L253.7 377.7L253.0 376.7L249.4 374.1L248.1 374.1L246.2 374.8L241.3 379.2L239.6 380.1L238.2 380.5L236.2 380.3L234.1 379.2L232.7 378.9L226.9 379.0L224.7 378.4L221.2 378.4L220.0 379.2L219.8 380.0L219.0 380.7L215.8 382.0L215.3 382.3L215.2 383.2L213.3 384.4L212.5 384.5L211.6 384.1L210.5 384.9L209.4 384.2L208.8 384.3L207.9 385.5L205.1 386.1L204.5 385.7L204.0 384.0L203.3 383.3L202.5 383.2L199.1 383.5L196.8 385.4L196.6 386.0L195.7 385.9L195.3 385.4L194.4 385.1L192.4 385.7L190.8 385.5L188.4 382.2L187.5 381.6L186.7 381.5L183.0 382.1L182.0 382.9L177.5 382.7L176.0 380.8L176.3 378.9L176.8 378.0L176.9 377.1L176.3 374.8L176.0 374.4L175.8 374.1L174.0 372.4L170.9 367.5L170.2 367.4L168.3 368.0L165.8 365.9L165.2 367.3L163.7 369.3L162.3 369.6L161.5 369.4L160.1 376.8L159.6 378.0L158.0 379.4L155.9 378.9L152.2 379.5L150.8 380.9L149.6 381.3L147.7 380.5L147.0 380.4L145.6 382.0L142.8 383.0L141.1 386.5L138.4 390.6L137.0 393.4L134.9 395.0L134.6 395.7L132.8 396.5L131.9 397.8L129.9 398.5L127.7 398.4L126.2 399.2L124.5 399.0L122.9 400.0L120.8 399.3L120.3 399.3L119.8 399.3L116.8 401.4L116.0 403.4L116.5 405.4L116.1 406.9L117.9 407.9L118.4 414.3L118.2 416.4L119.7 418.1L122.2 422.7L122.0 426.0L122.6 429.7L126.1 433.4L126.7 437.7L128.5 440.0L139.1 446.0L143.4 450.4L143.7 451.9L143.7 454.9L143.0 456.6L143.9 461.4L144.8 462.8L145.9 463.4L148.3 462.8L149.5 463.3L152.0 464.9L153.0 464.9L154.8 464.1L158.1 464.3L159.8 464.8L162.6 466.4L163.9 466.0L165.3 464.8L165.7 463.4L165.6 461.9L164.8 459.2L165.1 457.4L166.0 456.0L170.3 452.8L172.5 448.4L175.7 443.5L178.3 443.6L181.6 445.1L183.4 446.4L185.5 447.0L187.6 446.7L188.5 445.2L191.3 442.2L193.8 441.3L198.6 440.4L202.1 438.8L206.9 435.5L208.6 431.9L210.7 430.4L213.7 429.2L217.2 426.7L225.1 423.6L226.5 420.8L227.9 419.1L229.6 414.9L230.9 406.7L232.2 403.7L235.2 399.1L238.2 396.9L243.0 394.8L248.0 390.8L251.9 387.0L254.0 384.0L256.0 380.6Z","x":176.9,"y":412.5},{"n":"Rutana","a":true,"d":"M197.6 326.9L196.4 327.3L195.4 329.1L193.0 330.4L192.3 331.3L193.4 332.7L194.4 335.4L194.9 337.6L194.5 338.8L191.7 339.3L191.4 339.9L190.6 342.1L190.5 345.8L190.1 347.5L188.6 348.3L187.4 350.4L186.8 353.4L185.6 356.1L184.5 356.5L182.9 359.8L182.0 360.6L181.2 364.3L179.5 365.4L179.1 366.7L179.6 368.5L179.5 369.3L177.3 372.7L175.8 374.1L176.0 374.4L176.3 374.8L176.9 377.1L176.8 378.0L176.3 378.9L176.0 380.8L177.5 382.7L182.0 382.9L183.0 382.1L186.7 381.5L187.5 381.6L188.4 382.2L190.8 385.5L192.4 385.7L194.4 385.1L195.3 385.4L195.7 385.9L196.6 386.0L196.8 385.4L199.1 383.5L202.5 383.2L203.3 383.3L204.0 384.0L204.5 385.7L205.1 386.1L207.9 385.5L208.8 384.3L209.4 384.2L210.5 384.9L211.6 384.1L212.5 384.5L213.3 384.4L215.2 383.2L215.3 382.3L215.8 382.0L219.0 380.7L219.8 380.0L220.0 379.2L221.2 378.4L224.7 378.4L226.9 379.0L232.7 378.9L234.1 379.2L236.2 380.3L238.2 380.5L239.6 380.1L241.3 379.2L246.2 374.8L248.1 374.1L249.4 374.1L253.0 376.7L253.7 377.7L254.3 379.9L256.0 380.6L257.1 377.9L259.0 375.4L261.1 374.4L263.8 372.2L264.6 368.0L263.9 366.0L263.6 363.2L267.2 351.1L270.0 346.4L272.4 339.6L275.4 338.1L280.2 334.3L282.4 331.9L283.4 328.4L285.5 324.9L285.9 321.4L286.6 319.5L288.6 317.4L291.3 316.4L293.7 317.3L295.8 316.7L297.5 317.0L300.0 319.8L301.7 320.7L303.1 320.0L303.8 318.5L303.8 315.2L300.6 307.2L300.2 305.1L300.5 303.6L299.2 303.6L298.3 304.7L297.9 304.7L296.8 303.7L296.2 303.8L294.6 305.6L293.1 306.2L292.0 305.3L286.6 303.9L285.7 301.9L285.1 299.3L284.4 298.6L281.7 297.9L279.4 296.7L277.8 297.2L276.8 298.3L276.1 298.1L273.3 294.7L271.3 291.3L269.1 289.9L261.0 289.4L256.0 291.2L255.4 292.0L253.6 293.5L251.9 294.4L250.4 296.2L249.7 296.6L248.2 295.0L247.1 292.8L245.2 291.5L242.2 287.9L240.5 287.4L240.0 286.8L238.7 286.0L236.7 285.8L236.9 286.9L235.5 289.4L235.9 291.3L235.7 292.7L233.5 294.1L232.4 296.2L231.3 297.2L231.2 297.9L230.2 298.9L229.8 300.1L228.1 302.3L225.5 302.4L222.8 302.9L222.6 303.4L220.9 304.0L220.1 304.8L216.7 305.5L215.1 306.5L214.3 307.4L213.9 308.7L210.2 312.1L210.4 312.7L211.1 313.1L215.2 315.3L215.4 315.9L215.0 316.4L211.4 317.3L209.2 318.9L205.2 320.2L204.5 320.8L204.3 323.0L202.4 326.0L202.5 326.5L204.1 327.8L204.2 330.0L204.5 330.8L204.3 331.4L203.5 331.6L201.9 330.8L200.4 330.8L199.7 330.3L197.6 326.9Z","x":236.4,"y":338.3},{"n":"Ruyigi","a":false,"d":"M236.7 285.8L238.7 286.0L240.0 286.8L240.5 287.4L242.2 287.9L245.2 291.5L247.1 292.8L248.2 295.0L249.7 296.6L250.4 296.2L251.9 294.4L253.6 293.5L255.4 292.0L256.0 291.2L261.0 289.4L269.1 289.9L271.3 291.3L273.3 294.7L276.1 298.1L276.8 298.3L277.8 297.2L279.4 296.7L281.7 297.9L284.4 298.6L285.1 299.3L285.7 301.9L286.6 303.9L292.0 305.3L293.1 306.2L294.6 305.6L296.2 303.8L296.8 303.7L297.9 304.7L298.3 304.7L299.2 303.6L300.5 303.6L301.6 300.6L304.7 294.0L305.9 290.3L309.1 284.7L312.2 282.0L313.0 279.9L313.4 276.8L313.4 274.5L312.6 273.7L312.8 270.6L313.8 269.6L316.0 268.7L320.2 263.8L323.2 261.2L324.1 261.3L326.6 263.1L327.5 262.8L330.5 258.7L332.3 257.5L337.1 255.9L341.9 253.6L343.9 251.7L349.5 249.6L359.1 242.1L360.3 240.3L362.0 235.8L361.7 234.6L356.6 231.7L355.2 229.4L353.7 228.5L353.1 227.0L351.9 227.4L345.9 230.5L344.4 231.4L342.0 233.7L340.7 234.4L340.4 233.9L340.8 231.7L340.4 230.0L336.6 228.4L335.3 226.4L334.8 225.1L333.6 224.3L332.6 224.0L328.3 224.1L328.3 220.0L329.7 218.5L331.0 217.9L333.0 217.7L332.8 217.3L330.5 216.1L329.4 215.2L324.0 213.9L323.2 213.8L322.1 215.1L321.4 216.4L320.4 216.9L318.5 216.6L317.6 215.9L315.8 215.3L313.4 210.8L312.5 210.2L311.9 208.3L312.7 205.5L310.3 203.4L309.0 201.2L307.3 200.1L304.1 199.3L302.4 197.9L301.1 197.8L300.1 198.4L299.3 198.2L298.7 197.4L297.2 196.2L296.1 196.2L295.1 194.6L289.8 194.5L286.2 195.9L285.2 195.4L284.6 193.2L284.7 191.8L285.2 190.9L285.1 189.9L285.0 189.3L285.0 189.4L283.9 189.7L282.8 190.4L281.0 190.5L280.5 191.1L280.4 193.3L278.2 193.7L277.2 195.0L272.7 198.9L271.7 200.0L271.7 200.8L270.4 201.7L269.8 202.5L269.2 204.5L266.0 208.4L266.6 210.2L266.5 210.9L265.1 210.9L264.3 210.4L263.3 210.2L262.9 210.9L263.1 212.5L262.3 213.2L260.6 213.2L258.9 214.2L257.9 215.8L257.9 216.6L256.1 219.0L251.7 219.4L250.1 221.5L248.4 221.0L247.3 221.1L245.9 222.1L244.9 222.2L243.9 222.8L243.2 223.5L241.9 222.3L241.1 222.1L238.7 222.2L239.0 222.9L238.5 223.9L236.4 223.2L232.2 224.8L229.1 225.4L228.4 227.4L227.3 227.7L226.2 227.3L225.3 229.3L225.5 231.6L226.2 233.4L227.8 234.4L228.5 236.6L229.9 238.2L233.0 240.8L233.0 242.6L230.7 245.6L229.8 249.4L228.2 252.3L230.5 256.1L231.3 261.1L232.7 262.2L233.7 263.9L233.9 265.2L233.5 265.9L233.3 267.3L233.9 269.1L235.5 272.2L236.3 275.4L238.1 278.5L238.0 281.1L236.6 283.8L236.7 285.8Z","x":285.4,"y":247.8},{"n":"Cankuzo","a":false,"d":"M291.6 181.9L290.0 183.3L289.9 185.0L287.6 185.2L286.4 186.1L285.9 188.8L285.0 189.3L285.1 189.9L285.2 190.9L284.7 191.8L284.6 193.2L285.2 195.4L286.2 195.9L289.8 194.5L295.1 194.6L296.1 196.2L297.2 196.2L298.7 197.4L299.3 198.2L300.1 198.4L301.1 197.8L302.4 197.9L304.1 199.3L307.3 200.1L309.0 201.2L310.3 203.4L312.7 205.5L311.9 208.3L312.5 210.2L313.4 210.8L315.8 215.3L317.6 215.9L318.5 216.6L320.4 216.9L321.4 216.4L322.1 215.1L323.2 213.8L324.0 213.9L329.4 215.2L330.5 216.1L332.8 217.3L333.0 217.7L331.0 217.9L329.7 218.5L328.3 220.0L328.3 224.1L332.6 224.0L333.6 224.3L334.8 225.1L335.3 226.4L336.6 228.4L340.4 230.0L340.8 231.7L340.4 233.9L340.7 234.4L342.0 233.7L344.4 231.4L345.9 230.5L351.9 227.4L353.1 227.0L353.9 225.5L357.9 221.7L360.0 218.3L362.5 217.8L366.6 216.3L371.1 213.8L373.3 212.0L373.4 209.0L374.2 207.8L376.7 208.6L377.5 210.9L379.7 211.7L388.7 208.5L396.5 204.5L397.6 203.6L395.2 202.7L392.1 199.2L391.8 196.8L393.1 195.4L398.2 193.2L397.3 189.8L398.3 185.7L397.8 182.8L396.8 180.8L395.5 180.5L393.4 181.2L393.4 179.6L394.5 177.8L395.6 174.4L396.3 169.5L396.2 168.6L395.3 167.4L393.7 166.9L391.4 165.5L389.0 163.1L388.4 160.3L391.5 158.3L392.4 155.1L393.1 153.8L397.2 146.9L399.5 144.6L400.0 143.6L399.8 142.9L398.8 142.7L394.9 143.7L390.5 145.7L388.1 145.9L382.9 148.1L380.1 148.3L372.9 146.7L370.2 144.7L369.9 143.5L369.2 142.8L368.0 142.8L365.3 143.6L361.9 147.2L360.8 147.5L360.0 147.1L357.6 144.2L356.6 143.9L355.8 142.8L355.4 141.7L355.7 139.6L355.5 138.6L354.4 138.2L352.4 135.8L349.2 133.2L346.0 131.8L344.5 130.6L343.5 130.3L342.2 128.5L341.5 128.2L341.1 126.7L340.4 126.0L338.5 126.2L338.0 127.4L335.7 129.7L332.3 134.6L331.4 134.2L330.6 134.6L329.2 136.1L327.6 137.0L325.8 138.7L324.7 138.8L321.2 137.7L321.3 138.5L320.2 139.6L320.4 140.9L319.3 141.0L318.5 141.8L317.8 145.3L315.2 146.7L313.9 145.9L312.2 146.0L312.0 148.5L311.3 149.3L309.0 149.9L308.7 151.6L306.8 153.8L306.2 154.9L306.9 156.9L306.7 160.6L305.8 161.3L304.6 161.1L303.8 162.3L303.9 163.0L303.5 163.9L301.8 163.8L300.4 164.2L299.0 164.8L298.2 166.0L297.5 167.8L297.3 169.2L298.6 171.5L298.7 172.4L297.7 173.3L298.2 174.9L297.7 175.3L297.0 176.5L295.7 176.9L293.8 178.2L294.2 181.2L294.6 182.1L294.4 182.6L292.7 182.2L291.6 181.9Z","x":346.2,"y":179.6},{"n":"Karusi","a":true,"d":"M225.3 229.3L226.2 227.3L227.3 227.7L228.4 227.4L229.1 225.4L232.2 224.8L236.4 223.2L238.5 223.9L239.0 222.9L238.7 222.2L241.1 222.1L241.9 222.3L243.2 223.5L243.9 222.8L244.9 222.2L245.9 222.1L247.3 221.1L248.4 221.0L250.1 221.5L251.7 219.4L256.1 219.0L257.9 216.6L257.9 215.8L258.9 214.2L260.6 213.2L262.3 213.2L263.1 212.5L262.9 210.9L263.3 210.2L264.3 210.4L265.1 210.9L266.5 210.9L266.6 210.2L266.0 208.4L269.2 204.5L269.8 202.5L270.4 201.7L271.7 200.8L271.7 200.0L272.7 198.9L277.2 195.0L278.2 193.7L280.4 193.3L280.5 191.1L281.0 190.5L282.8 190.4L283.9 189.7L285.0 189.4L285.0 189.3L285.9 188.8L286.4 186.1L287.6 185.2L289.9 185.0L290.0 183.3L291.6 181.9L291.3 181.8L289.4 180.7L288.0 181.2L286.7 182.2L285.0 182.5L284.0 182.1L284.0 180.8L282.8 180.2L280.8 179.9L278.3 180.9L276.6 182.1L274.9 182.1L272.8 181.6L271.9 180.2L271.0 179.5L268.8 178.8L267.8 177.9L267.5 176.1L266.1 175.1L265.7 174.1L267.1 170.6L268.8 168.8L269.5 167.6L269.6 166.6L271.8 162.9L273.2 161.6L273.9 160.3L274.2 158.5L275.2 155.8L275.0 154.6L275.8 150.3L275.7 142.4L276.2 141.3L276.1 140.2L274.8 137.9L273.4 136.2L271.8 134.7L269.9 133.4L269.4 132.2L268.5 131.3L265.1 129.8L263.8 128.7L261.9 128.2L254.1 128.7L248.1 135.8L246.3 136.8L242.8 138.0L237.5 141.6L234.1 144.5L229.6 144.9L226.4 144.6L224.6 146.4L221.9 146.1L220.8 145.5L219.8 145.5L218.2 146.6L217.5 148.0L216.3 149.1L213.4 150.4L212.5 151.5L212.5 152.5L211.1 154.8L209.4 159.3L208.4 160.7L206.8 161.0L205.4 160.8L203.6 161.2L202.6 162.2L202.8 165.9L202.2 166.8L200.7 167.4L200.0 167.4L199.6 169.6L198.4 170.2L197.5 171.3L196.9 176.3L194.3 179.8L194.8 186.6L195.3 187.3L196.2 187.8L198.6 188.4L199.6 188.2L200.3 187.7L201.0 186.4L204.3 184.7L205.0 183.0L206.0 182.8L207.4 183.2L208.4 184.4L209.5 187.2L211.5 190.2L213.7 192.9L214.4 193.2L215.1 194.0L215.2 195.4L216.1 196.9L218.1 197.6L219.6 199.2L220.8 199.9L220.9 201.2L222.1 203.3L221.2 204.5L221.6 207.0L221.6 208.5L221.1 210.2L221.4 211.0L221.3 211.5L219.9 212.5L217.3 215.7L216.4 217.5L216.3 219.4L215.3 222.0L214.4 222.8L212.8 222.9L212.1 225.3L213.2 227.1L214.3 227.5L216.1 228.8L218.0 230.7L218.5 233.5L219.1 233.9L220.5 233.6L221.8 231.2L222.5 230.5L224.6 229.3L225.3 229.3Z","x":241.8,"y":178.3},{"n":"Cibitoke","a":true,"d":"M93.1 106.5L90.7 108.1L85.8 109.0L84.1 110.1L82.5 111.9L81.3 113.9L79.4 113.9L78.2 112.1L78.0 109.6L76.4 107.0L76.1 105.9L77.1 101.9L73.2 96.9L73.3 95.5L72.4 94.4L72.2 93.3L74.3 92.5L76.2 91.0L76.4 89.3L75.6 87.7L74.8 84.4L71.9 81.7L71.5 80.1L72.5 77.1L72.0 75.0L70.6 73.6L66.5 72.0L60.9 68.4L56.8 66.9L54.9 67.0L51.0 68.1L46.4 67.3L44.5 66.4L41.4 65.8L38.0 64.5L34.5 60.8L32.4 60.2L30.5 60.8L28.8 62.4L27.3 62.5L19.0 60.2L13.7 61.9L12.0 64.5L11.5 67.4L12.2 72.8L11.2 75.1L11.2 78.3L12.0 80.8L12.0 84.1L9.2 90.0L8.7 93.9L7.9 96.0L6.3 96.3L1.9 100.6L0.0 103.5L0.1 106.6L1.2 108.9L3.3 109.9L6.3 110.9L10.2 110.1L11.6 110.6L14.0 115.5L14.0 117.1L15.2 118.9L19.2 121.6L19.7 123.6L19.2 126.3L19.2 128.7L21.3 132.3L22.9 131.9L28.2 134.7L30.5 136.5L34.0 138.1L35.5 140.5L36.8 145.4L35.7 146.9L36.3 147.8L38.7 148.0L40.3 150.7L42.4 152.4L44.5 153.3L47.3 153.4L49.4 154.4L51.3 156.2L53.2 159.4L54.1 161.9L54.3 164.3L55.2 165.3L55.2 167.8L54.2 169.7L54.4 170.7L59.0 171.1L63.2 170.2L63.7 169.8L63.2 164.5L64.2 162.6L62.6 159.4L62.3 157.9L62.3 155.9L64.6 154.2L65.4 152.7L65.3 150.6L65.9 150.2L67.9 149.6L71.3 149.9L72.5 149.0L75.7 149.0L76.4 148.5L77.0 147.6L76.3 145.5L77.0 141.9L77.4 141.3L77.5 140.4L79.8 138.0L82.5 137.0L85.2 137.4L85.8 138.0L86.5 140.7L88.0 141.2L88.6 140.9L89.0 139.8L91.7 138.7L92.4 137.1L95.2 136.2L97.0 135.2L99.3 135.5L100.7 135.1L102.8 135.2L103.3 132.1L104.7 130.8L103.4 128.5L102.3 127.5L102.1 125.7L101.6 124.6L100.3 123.1L100.6 121.3L98.8 118.9L98.4 117.7L98.3 114.9L97.5 113.6L97.7 111.4L95.5 108.2L94.7 108.3L93.1 106.5Z","x":49.4,"y":109.5},{"n":"Kayanza","a":true,"d":"M186.3 161.8L187.6 153.8L189.4 150.5L189.0 150.1L187.5 150.1L186.5 150.7L183.7 151.2L181.0 150.2L178.4 151.5L176.4 152.1L174.3 152.3L172.7 151.8L172.8 150.3L172.3 148.9L171.1 147.3L166.9 144.5L163.8 139.4L163.6 132.9L162.6 131.8L161.4 131.1L160.7 131.3L159.9 132.5L158.7 133.1L157.3 134.7L155.2 135.0L153.7 134.2L152.3 132.8L152.1 131.6L152.5 129.8L153.7 128.4L153.7 127.2L153.2 125.4L152.2 124.8L151.4 123.6L151.5 122.6L150.8 121.8L149.6 121.6L148.0 121.9L142.7 120.6L140.6 119.6L139.2 118.1L137.8 116.1L137.3 114.7L137.9 113.5L140.0 111.8L141.3 112.3L142.6 112.0L142.9 103.5L141.7 103.2L138.5 103.3L135.9 106.2L132.0 107.9L129.6 107.6L128.2 107.0L126.0 106.9L120.2 108.9L117.8 110.1L117.2 111.6L113.7 112.1L111.7 111.7L108.0 108.3L105.0 106.9L102.3 107.5L100.2 107.2L96.7 105.4L94.8 105.3L93.1 106.5L94.7 108.3L95.5 108.2L97.7 111.4L97.5 113.6L98.3 114.9L98.4 117.7L98.8 118.9L100.6 121.3L100.3 123.1L101.6 124.6L102.1 125.7L102.3 127.5L103.4 128.5L104.7 130.8L108.6 130.7L109.3 132.1L110.5 133.1L109.4 136.6L110.0 137.4L109.7 139.1L110.4 140.7L110.8 142.6L111.8 143.6L112.7 146.8L112.3 147.9L113.9 152.6L116.4 156.5L116.4 159.1L117.0 159.4L117.6 160.5L117.6 161.8L119.6 164.8L119.6 165.8L118.9 167.5L119.3 168.5L118.3 172.0L119.5 172.5L121.3 172.5L123.9 173.3L124.4 176.0L125.6 177.8L126.1 179.3L126.7 179.7L132.1 180.5L133.6 182.0L134.6 183.8L135.7 184.3L135.9 184.9L139.5 185.0L139.7 184.6L144.0 183.1L144.3 182.6L145.6 182.4L146.0 182.6L146.1 183.0L145.7 183.7L145.7 184.5L146.1 185.9L150.5 190.3L151.7 192.6L152.0 194.2L153.2 194.9L153.5 195.7L157.8 196.9L159.1 198.1L160.6 198.2L161.8 197.4L162.3 195.1L162.9 194.0L163.5 193.6L165.3 193.5L169.6 190.7L170.2 190.5L172.5 190.4L174.6 191.3L175.3 188.6L176.0 187.6L177.0 187.2L181.5 182.2L183.5 181.1L183.7 179.8L183.6 176.5L183.2 176.2L181.8 176.1L178.8 174.5L177.7 172.4L177.6 170.1L179.0 169.1L182.7 164.3L184.2 163.4L185.0 162.1L186.3 161.8Z","x":142.4,"y":150.5},{"n":"Bubanza","a":true,"d":"M54.4 170.7L54.7 171.9L55.7 173.9L53.2 177.0L50.8 181.7L49.2 187.5L49.7 188.6L48.4 191.0L50.3 194.7L49.7 196.7L48.5 199.2L51.5 206.1L51.5 207.0L53.7 207.2L53.8 208.6L54.1 209.1L54.7 209.3L55.9 211.5L56.4 212.5L56.7 214.6L57.4 215.6L58.5 216.5L60.2 217.1L60.8 216.7L62.7 214.1L63.5 212.1L64.6 211.3L65.6 211.3L67.3 210.7L67.8 209.9L69.3 208.8L71.3 208.6L72.5 208.0L74.1 206.2L89.1 204.2L89.7 204.6L90.1 207.4L92.4 206.3L93.3 205.5L96.4 205.2L99.9 205.5L102.3 204.3L103.0 204.7L104.1 204.4L105.2 203.0L105.9 203.0L108.4 205.9L110.8 206.1L111.3 205.9L111.9 205.1L113.1 202.9L112.8 202.1L112.8 200.9L114.0 199.5L114.7 197.4L116.4 195.2L117.1 191.6L118.5 189.5L119.2 186.0L119.7 185.6L120.6 185.5L121.0 184.9L121.1 183.5L120.6 182.8L119.5 182.1L119.0 181.3L117.7 180.4L117.0 178.9L115.5 177.2L115.4 176.6L115.4 175.9L117.7 173.5L118.3 172.0L119.3 168.5L118.9 167.5L119.6 165.8L119.6 164.8L117.6 161.8L117.6 160.5L117.0 159.4L116.4 159.1L116.4 156.5L113.9 152.6L112.3 147.9L112.7 146.8L111.8 143.6L110.8 142.6L110.4 140.7L109.7 139.1L110.0 137.4L109.4 136.6L110.5 133.1L109.3 132.1L108.6 130.7L104.7 130.8L103.3 132.1L102.8 135.2L100.7 135.1L99.3 135.5L97.0 135.2L95.2 136.2L92.4 137.1L91.7 138.7L89.0 139.8L88.6 140.9L88.0 141.2L86.5 140.7L85.8 138.0L85.2 137.4L82.5 137.0L79.8 138.0L77.5 140.4L77.4 141.3L77.0 141.9L76.3 145.5L77.0 147.6L76.4 148.5L75.7 149.0L72.5 149.0L71.3 149.9L67.9 149.6L65.9 150.2L65.3 150.6L65.4 152.7L64.6 154.2L62.3 155.9L62.3 157.9L62.6 159.4L64.2 162.6L63.2 164.5L63.7 169.8L63.2 170.2L59.0 171.1L54.4 170.7Z","x":86.3,"y":175.7},{"n":"Muramvya","a":true,"d":"M174.6 191.3L172.5 190.4L170.2 190.5L169.6 190.7L165.3 193.5L163.5 193.6L162.9 194.0L162.3 195.1L161.8 197.4L160.6 198.2L159.1 198.1L157.8 196.9L153.5 195.7L153.2 194.9L152.0 194.2L151.7 192.6L150.5 190.3L146.1 185.9L145.7 184.5L145.7 183.7L146.1 183.0L146.0 182.6L145.6 182.4L144.3 182.6L144.0 183.1L139.7 184.6L139.5 185.0L135.9 184.9L135.7 184.3L134.6 183.8L133.6 182.0L132.1 180.5L126.7 179.7L126.1 179.3L125.6 177.8L124.4 176.0L123.9 173.3L121.3 172.5L119.5 172.5L118.3 172.0L117.7 173.5L115.4 175.9L115.4 176.6L115.5 177.2L117.0 178.9L117.7 180.4L119.0 181.3L119.5 182.1L120.6 182.8L121.1 183.5L121.0 184.9L120.6 185.5L119.7 185.6L119.2 186.0L118.5 189.5L117.1 191.6L116.4 195.2L114.7 197.4L114.0 199.5L112.8 200.9L112.8 202.1L113.1 202.9L111.9 205.1L111.3 205.9L110.8 206.1L108.4 205.9L109.5 207.4L109.7 208.9L110.6 210.1L111.6 210.3L113.0 212.2L113.5 215.5L114.6 216.9L115.1 218.6L113.3 220.6L112.8 222.4L114.4 223.6L115.2 225.0L118.1 227.7L119.3 230.2L120.7 235.0L121.0 235.4L121.4 235.2L121.8 234.2L123.3 232.4L125.5 231.6L125.0 227.5L125.5 224.5L126.4 224.3L128.7 224.7L130.3 225.4L132.0 225.5L133.4 226.0L133.7 226.9L133.6 228.0L134.4 229.6L136.3 231.2L138.7 231.9L139.4 234.6L139.3 235.8L138.7 237.2L139.8 240.2L140.4 241.0L142.0 241.1L143.3 240.6L144.1 238.5L145.5 237.6L145.8 237.0L146.5 236.7L149.8 236.7L150.9 236.3L152.6 231.7L153.6 230.4L153.8 229.2L154.9 227.0L158.4 225.5L159.8 226.5L160.2 227.2L162.9 228.7L163.7 228.6L164.4 227.8L164.6 226.0L165.8 224.1L165.8 223.3L167.3 221.4L167.4 220.5L166.9 217.1L167.2 215.1L167.8 213.7L169.0 213.3L169.2 210.6L174.9 204.8L175.8 202.5L176.5 202.1L177.1 201.2L178.7 200.3L182.2 200.3L183.4 199.9L183.7 199.1L181.1 197.4L177.8 196.9L174.6 192.9L174.6 191.3Z","x":140.8,"y":207.5},{"n":"Bujumbura Rural","a":false,"d":"M51.5 207.0L51.5 208.7L50.2 209.8L46.4 210.9L45.2 212.7L45.2 215.5L44.2 216.4L43.1 218.1L42.7 220.0L41.7 221.7L43.9 223.6L43.3 225.0L54.7 226.5L57.2 227.4L61.6 225.4L65.1 224.6L67.8 225.3L67.4 222.7L68.0 222.4L67.0 215.0L69.5 214.5L71.2 218.7L73.8 215.6L77.6 216.1L78.4 215.9L82.6 216.8L85.5 216.5L89.9 216.9L90.9 216.7L91.6 217.0L91.8 219.1L91.4 220.6L90.7 221.6L88.1 223.7L87.1 231.5L87.4 236.5L83.9 235.5L82.9 236.0L82.6 236.5L82.6 237.3L85.0 239.9L84.9 241.6L80.7 241.2L79.2 242.5L77.9 244.6L75.9 244.7L75.3 244.6L75.2 243.1L74.8 241.9L73.2 241.7L73.7 243.9L73.9 246.5L73.1 248.9L72.0 250.5L71.9 253.1L73.2 254.9L73.9 256.3L72.5 259.6L73.1 261.3L72.7 263.7L72.9 265.6L74.0 268.2L75.1 269.6L75.2 272.4L74.3 273.6L74.3 275.5L75.0 277.7L77.8 276.9L79.9 276.9L80.4 275.9L81.2 275.4L82.5 272.8L82.6 271.8L84.8 271.3L87.5 269.8L88.4 270.2L88.9 270.7L88.6 271.7L89.3 275.4L89.0 276.3L92.0 276.5L92.6 275.0L93.3 274.7L94.1 274.8L95.0 275.3L97.0 275.4L98.4 276.9L98.5 277.7L99.8 280.5L100.8 281.4L103.1 283.1L106.1 283.9L107.8 287.2L107.4 288.6L107.2 291.8L107.5 293.2L107.2 294.9L108.5 295.1L109.4 294.6L110.2 292.8L111.0 289.5L110.9 288.2L112.2 283.2L114.5 280.1L115.0 277.5L115.4 276.8L118.4 274.1L118.5 271.9L120.1 270.2L122.3 269.7L123.5 267.0L124.1 266.5L125.1 266.6L125.3 267.1L126.3 266.9L127.1 263.3L126.8 262.4L125.0 262.0L124.8 260.9L125.4 255.7L125.7 254.3L126.4 253.2L128.5 251.8L129.0 250.9L129.0 249.2L126.8 246.8L126.2 244.7L125.5 244.2L124.9 243.1L125.4 238.1L127.4 234.2L127.3 232.8L125.5 231.6L123.3 232.4L121.8 234.2L121.4 235.2L121.0 235.4L120.7 235.0L119.3 230.2L118.1 227.7L115.2 225.0L114.4 223.6L112.8 222.4L113.3 220.6L115.1 218.6L114.6 216.9L113.5 215.5L113.0 212.2L111.6 210.3L110.6 210.1L109.7 208.9L109.5 207.4L108.4 205.9L105.9 203.0L105.2 203.0L104.1 204.4L103.0 204.7L102.3 204.3L99.9 205.5L96.4 205.2L93.3 205.5L92.4 206.3L90.1 207.4L89.7 204.6L89.1 204.2L74.1 206.2L72.5 208.0L71.3 208.6L69.3 208.8L67.8 209.9L67.3 210.7L65.6 211.3L64.6 211.3L63.5 212.1L62.7 214.1L60.8 216.7L60.2 217.1L58.5 216.5L57.4 215.6L56.7 214.6L56.4 212.5L55.9 211.5L54.7 209.3L54.1 209.1L53.8 208.6L53.7 207.2L51.5 207.0Z","x":95.4,"y":242.6},{"n":"Bujumbura Mairie","a":false,"d":"M67.8 225.3L72.4 226.9L73.4 228.3L75.2 232.4L72.9 240.2L73.2 241.7L74.8 241.9L75.2 243.1L75.3 244.6L75.9 244.7L77.9 244.6L79.2 242.5L80.7 241.2L84.9 241.6L85.0 239.9L82.6 237.3L82.6 236.5L82.9 236.0L83.9 235.5L87.4 236.5L87.1 231.5L88.1 223.7L90.7 221.6L91.4 220.6L91.8 219.1L91.6 217.0L90.9 216.7L89.9 216.9L85.5 216.5L82.6 216.8L78.4 215.9L77.6 216.1L73.8 215.6L71.2 218.7L69.5 214.5L67.0 215.0L68.0 222.4L67.4 222.7L67.8 225.3Z","x":79.2,"y":227.2},{"n":"Bururi","a":false,"d":"M155.5 290.1L154.7 292.6L154.2 292.8L153.9 294.5L153.4 295.1L153.2 296.9L152.1 298.0L151.0 300.3L150.0 301.5L149.4 301.6L147.0 303.6L144.9 304.6L144.4 304.6L143.5 301.2L145.1 298.7L145.3 297.8L144.8 296.2L145.8 295.4L146.0 294.7L145.8 293.4L146.3 290.8L145.8 290.4L143.7 290.4L143.1 289.9L141.0 289.2L139.7 287.8L139.2 284.2L138.2 283.7L136.7 284.2L135.7 283.9L134.9 283.0L132.5 280.0L132.2 276.0L129.0 273.4L127.8 271.5L122.9 270.6L122.3 269.7L120.1 270.2L118.5 271.9L118.4 274.1L115.4 276.8L115.0 277.5L114.5 280.1L112.2 283.2L110.9 288.2L111.0 289.5L110.2 292.8L109.4 294.6L108.5 295.1L107.2 294.9L106.0 296.4L105.5 297.7L105.9 298.8L106.7 299.8L106.5 301.8L106.7 302.4L109.2 302.9L113.4 301.8L113.9 305.8L115.0 307.4L115.3 309.4L117.6 310.3L118.7 309.9L119.8 308.9L120.9 305.8L122.1 304.0L122.6 304.2L124.0 305.7L125.7 308.6L127.1 309.6L127.0 311.0L128.9 313.9L130.9 318.2L128.8 322.4L128.6 324.2L127.8 326.4L127.0 327.0L125.4 330.0L124.2 330.9L122.3 334.0L121.3 336.3L121.2 338.5L120.3 341.0L119.2 342.0L118.9 342.8L119.3 344.0L119.1 344.9L118.2 346.2L117.4 346.2L117.2 346.5L116.7 348.4L114.9 351.6L113.9 352.5L111.9 353.1L111.1 354.6L111.4 355.0L113.3 354.7L115.5 355.2L116.5 355.2L117.5 354.6L118.7 355.0L119.0 355.6L118.5 357.0L118.7 357.8L119.0 359.0L120.8 361.8L120.8 362.5L119.7 363.5L118.2 363.4L115.5 364.9L114.5 366.4L112.3 367.8L111.9 368.5L113.4 370.9L115.0 375.3L115.2 376.5L114.8 377.9L114.8 382.4L114.4 383.6L113.7 384.6L113.8 385.3L116.4 388.0L117.6 389.8L117.6 392.4L119.5 394.2L119.6 396.5L120.5 398.0L120.3 399.3L120.8 399.3L122.9 400.0L124.5 399.0L126.2 399.2L127.7 398.4L129.9 398.5L131.9 397.8L132.8 396.5L134.6 395.7L134.9 395.0L137.0 393.4L138.4 390.6L141.1 386.5L142.8 383.0L145.6 382.0L147.0 380.4L147.7 380.5L149.6 381.3L150.8 380.9L152.2 379.5L155.9 378.9L158.0 379.4L159.6 378.0L160.1 376.8L161.5 369.4L162.3 369.6L163.7 369.3L165.2 367.3L165.8 365.9L168.3 368.0L170.2 367.4L170.9 367.5L174.0 372.4L175.8 374.1L177.3 372.7L179.5 369.3L179.6 368.5L179.1 366.7L179.5 365.4L181.2 364.3L182.0 360.6L182.9 359.8L184.5 356.5L185.6 356.1L186.8 353.4L187.4 350.4L188.6 348.3L190.1 347.5L190.5 345.8L190.6 342.1L191.4 339.9L191.7 339.3L194.5 338.8L194.9 337.6L194.4 335.4L193.4 332.7L192.3 331.3L193.0 330.4L195.4 329.1L196.4 327.3L197.6 326.9L197.5 325.8L196.9 325.2L195.7 325.2L195.2 324.7L194.7 322.5L193.6 322.2L191.3 322.1L189.6 321.4L187.1 320.9L185.9 320.1L184.1 317.8L183.9 316.9L184.7 314.8L184.9 312.1L184.1 311.3L181.1 310.1L180.7 309.1L181.0 307.9L180.9 307.1L180.1 306.2L179.4 306.4L178.0 309.2L177.3 313.0L176.5 313.7L174.6 314.2L174.3 314.9L174.6 317.2L172.0 322.2L170.7 323.2L168.5 326.4L166.9 327.6L166.4 327.7L164.4 327.1L162.7 327.3L162.4 327.1L162.1 326.5L162.1 325.6L163.2 322.9L163.4 320.8L164.3 319.1L164.6 315.3L165.2 313.9L166.0 313.2L166.5 308.1L167.1 304.6L167.4 300.0L168.4 297.5L167.9 294.9L168.5 293.5L167.9 292.1L167.0 291.6L164.3 288.9L163.2 288.7L161.6 290.5L160.6 290.6L158.2 290.0L155.5 290.1Z","x":146.7,"y":336.6},{"n":"Mwaro","a":true,"d":"M169.0 213.3L167.8 213.7L167.2 215.1L166.9 217.1L167.4 220.5L167.3 221.4L165.8 223.3L165.8 224.1L164.6 226.0L164.4 227.8L163.7 228.6L162.9 228.7L160.2 227.2L159.8 226.5L158.4 225.5L154.9 227.0L153.8 229.2L153.6 230.4L152.6 231.7L150.9 236.3L149.8 236.7L146.5 236.7L145.8 237.0L145.5 237.6L144.1 238.5L143.3 240.6L142.0 241.1L140.4 241.0L139.8 240.2L138.7 237.2L139.3 235.8L139.4 234.6L138.7 231.9L136.3 231.2L134.4 229.6L133.6 228.0L133.7 226.9L133.4 226.0L132.0 225.5L130.3 225.4L128.7 224.7L126.4 224.3L125.5 224.5L125.0 227.5L125.5 231.6L127.3 232.8L127.4 234.2L125.4 238.1L124.9 243.1L125.5 244.2L126.2 244.7L126.8 246.8L129.0 249.2L129.0 250.9L128.5 251.8L126.4 253.2L125.7 254.3L125.4 255.7L124.8 260.9L125.0 262.0L126.8 262.4L127.1 263.3L126.3 266.9L125.3 267.1L125.1 266.6L124.1 266.5L123.5 267.0L122.3 269.7L122.9 270.6L127.8 271.5L129.0 273.4L132.2 276.0L132.5 280.0L134.9 283.0L135.7 283.9L136.7 284.2L138.2 283.7L139.2 284.2L139.7 287.8L141.0 289.2L143.1 289.9L143.7 290.4L145.8 290.4L146.3 290.8L145.8 293.4L146.0 294.7L145.8 295.4L144.8 296.2L145.3 297.8L145.1 298.7L143.5 301.2L144.4 304.6L144.9 304.6L147.0 303.6L149.4 301.6L150.0 301.5L151.0 300.3L152.1 298.0L153.2 296.9L153.4 295.1L153.9 294.5L154.2 292.8L154.7 292.6L155.5 290.1L155.1 288.8L155.4 288.3L157.2 286.9L158.7 284.8L161.0 283.2L163.6 282.8L168.3 282.7L169.6 283.0L170.4 283.9L171.3 284.3L173.3 284.4L173.7 283.8L173.6 282.9L172.5 282.0L171.4 279.9L169.4 274.4L167.6 272.3L166.2 270.1L166.4 267.7L167.8 265.7L168.1 264.8L169.4 264.5L171.2 262.8L172.2 262.4L174.1 262.1L175.5 262.5L177.9 262.6L180.1 262.1L181.4 261.8L183.4 259.5L183.9 258.5L184.1 254.3L184.5 252.3L184.4 250.5L185.0 246.9L185.1 244.6L184.6 242.2L185.3 240.8L185.9 237.9L186.3 237.4L188.4 237.0L188.9 236.5L188.3 234.8L188.5 234.2L187.9 233.5L185.4 232.2L183.6 229.7L180.5 229.7L178.3 228.3L178.1 227.7L178.5 227.0L179.9 226.3L181.0 224.4L181.1 222.5L179.6 221.2L178.9 220.0L176.7 218.3L176.2 216.3L175.9 216.0L173.2 215.9L172.4 215.5L171.7 213.8L169.0 213.3Z","x":154.4,"y":254.9},{"n":"Rumonge","a":false,"d":"M120.3 399.3L120.5 398.0L119.6 396.5L119.5 394.2L117.6 392.4L117.6 389.8L116.4 388.0L113.8 385.3L113.7 384.6L114.4 383.6L114.8 382.4L114.8 377.9L115.2 376.5L115.0 375.3L113.4 370.9L111.9 368.5L112.3 367.8L114.5 366.4L115.5 364.9L118.2 363.4L119.7 363.5L120.8 362.5L120.8 361.8L119.0 359.0L118.7 357.8L118.5 357.0L119.0 355.6L118.7 355.0L117.5 354.6L116.5 355.2L115.5 355.2L113.3 354.7L111.4 355.0L111.1 354.6L111.9 353.1L113.9 352.5L114.9 351.6L116.7 348.4L117.2 346.5L117.4 346.2L118.2 346.2L119.1 344.9L119.3 344.0L118.9 342.8L119.2 342.0L120.3 341.0L121.2 338.5L121.3 336.3L122.3 334.0L124.2 330.9L125.4 330.0L127.0 327.0L127.8 326.4L128.6 324.2L128.8 322.4L130.9 318.2L128.9 313.9L127.0 311.0L127.1 309.6L125.7 308.6L124.0 305.7L122.6 304.2L122.1 304.0L120.9 305.8L119.8 308.9L118.7 309.9L117.6 310.3L115.3 309.4L115.0 307.4L113.9 305.8L113.4 301.8L109.2 302.9L106.7 302.4L106.5 301.8L106.7 299.8L105.9 298.8L105.5 297.7L106.0 296.4L107.2 294.9L107.5 293.2L107.2 291.8L107.4 288.6L107.8 287.2L106.1 283.9L103.1 283.1L100.8 281.4L99.8 280.5L98.5 277.7L98.4 276.9L97.0 275.4L95.0 275.3L94.1 274.8L93.3 274.7L92.6 275.0L92.0 276.5L89.0 276.3L89.3 275.4L88.6 271.7L88.9 270.7L88.4 270.2L87.5 269.8L84.8 271.3L82.6 271.8L82.5 272.8L81.2 275.4L80.4 275.9L79.9 276.9L77.8 276.9L75.0 277.7L75.2 278.3L74.9 281.3L70.4 297.6L69.3 299.9L69.0 301.5L67.3 304.2L67.5 305.8L68.2 307.2L70.0 308.9L71.1 310.6L73.5 321.0L74.6 323.7L74.6 325.0L75.4 326.7L77.1 327.6L78.8 332.5L78.7 333.7L80.0 334.9L83.7 340.9L84.4 342.7L85.7 344.0L86.9 346.9L88.1 350.5L88.3 353.1L89.1 355.3L90.6 357.4L91.6 357.3L93.2 358.7L93.7 360.4L92.2 364.3L92.6 366.9L94.6 368.3L98.4 373.8L99.6 377.7L100.8 379.9L105.3 385.3L108.7 394.2L109.7 399.1L111.4 403.8L116.1 406.9L116.5 405.4L116.0 403.4L116.8 401.4L119.8 399.3L120.3 399.3Z","x":99.0,"y":326.8}]};
+const PROV=["Bubanza","Cibitoke","Gitega","Karusi","Muramvya","Mwaro","Kayanza","Kirundo","Muyinga","Ngozi","Rutana"];
+(()=>{
+  const svg=$("#bimap");svg.setAttribute("viewBox",`0 0 ${MAP.w} ${MAP.h}`);
+  let s="",ov="",n=0;
+  MAP.p.forEach(p=>{
+    const lbl=p.n==="Bujumbura Rural"?"":p.n==="Bujumbura Mairie"?"Bujumbura":p.n;
+    const dot=p.a?`<g class="dot" style="transition-delay:${(n++)*.12+.3}s"><circle class="pulse" style="animation-delay:${n*.35}s" cx="${p.x}" cy="${p.y}" r="9"/><circle class="c" cx="${p.x}" cy="${p.y}" r="6"/></g>`:"";
+    s+=`<g class="pv${p.a?" a":""}" data-n="${p.n}"><path d="${p.d}"/></g>`;
+    ov+=`<g class="ov${p.a?" a":""}" data-n="${p.n}">${dot}${lbl?`<text x="${p.x}" y="${p.y+(p.a?22:4)}">${lbl}</text>`:""}</g>`;
+  });
+  svg.innerHTML=s+ov;
+})();
+$("#chips").innerHTML=PROV.map((p,i)=>`<span class="pchip" data-n="${p}" style="transition-delay:${i*.07}s">${p}</span>`).join("");
+$$(".pchip").forEach(c=>{
+  const g=()=>$$(`#bimap [data-n="${c.dataset.n}"]`);
+  c.addEventListener("mouseenter",()=>g().forEach(e=>e.classList.add("hl")));
+  c.addEventListener("mouseleave",()=>g().forEach(e=>e.classList.remove("hl")));
+});
+
+/* onglets */
+$("#tabs").addEventListener("click",e=>{
+  const b=e.target.closest(".tab");if(!b)return;
+  $$(".tab").forEach(x=>x.classList.toggle("on",x===b));
+  $$(".pane").forEach(p=>p.classList.toggle("on",p.dataset.p===b.dataset.t));
+});
+
+/* galerie + lightbox */
+const GAL=[["real1","Réalisations des coopératives"],["foire1","Foire nationale agricole 2026"],["uhm","Vie des coopératives"],["dsc4398","Activités de terrain"],["mar","Productions des membres"],["real2","Rencontres paysannes"]];
+$("#mosaic").innerHTML=GAL.map(([k,t])=>`<button data-k="${k}" aria-label="Agrandir : ${t}"><div class="ph hov"><img src="${IMG[k]}" alt="${t}" loading="lazy" referrerpolicy="no-referrer" onerror="this.style.display='none'"></div><i>${t}</i></button>`).join("");
+const lb=$("#lb");
+$("#mosaic").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;lb.querySelector("img").src=IMG[b.dataset.k];lb.classList.add("on")});
+lb.addEventListener("click",()=>lb.classList.remove("on"));
+addEventListener("keydown",e=>{if(e.key==="Escape")lb.classList.remove("on")});
+
+/* parallaxe fond impact */
+$("#pbg").style.backgroundImage=`url(${IMG.real1})`;
+
+/* compteurs */
+const fmt=(n,s)=>s?n.toLocaleString("fr-FR"):String(n);
+function counter(el){
+  const to=+el.dataset.count,s=el.dataset.sep;let t0;
+  const step=t=>{t0??=t;const p=Math.min((t-t0)/1800,1),e=1-Math.pow(1-p,3);el.textContent=fmt(Math.round(to*e),s);if(p<1)requestAnimationFrame(step)};
+  requestAnimationFrame(step);
+}
+const co=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){counter(e.target);co.unobserve(e.target)}}),{threshold:.4});
+$$("[data-count]").forEach(el=>co.observe(el));
+
+/* apparition au défilement */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+$$(".rv,.pchip").forEach(el=>io.observe(el));
+
+/* défilement : barre, en-tête, parallaxe, retour haut */
+const nav=$("#nav"),bar=$("#bar"),totop=$("#top"),pbg=$("#pbg"),imp=$(".impact");
+function onScroll(){
+  const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
+  bar.style.width=(h>0?y/h*100:0)+"%";
+  nav.classList.toggle("solid",y>60);
+  totop.classList.toggle("on",y>700);
+  const r=imp.getBoundingClientRect();
+  if(r.bottom>0&&r.top<innerHeight)pbg.style.transform=`translateY(${(r.top)*-.12}px)`;
+}
+addEventListener("scroll",onScroll,{passive:true});onScroll();
+totop.onclick=()=>scrollTo({top:0,behavior:"smooth"});
+$("#burger").addEventListener("click",()=>$("#menu").classList.toggle("open"));
+$$("#menu a").forEach(a=>a.addEventListener("click",()=>$("#menu").classList.remove("open")));
+</script>
+</body>
+</html>
